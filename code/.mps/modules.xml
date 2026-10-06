@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MPSProject">
+    <projectModules>
+      <modulePath path="$PROJECT_DIR$/solutions/io.f1re.ai.mps.build/io.f1re.ai.mps.build.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/io.f1re.ai.mps.mcp.ports/io.f1re.ai.mps.mcp.ports.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/io.f1re.ai.mps.mcp.stubs/io.f1re.ai.mps.mcp.stubs.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/io.f1re.ai.mps.mcp.validation.helper/io.f1re.ai.mps.mcp.validation.helper.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/io.f1re.ai.mps.mcp.validation/io.f1re.ai.mps.mcp.validation.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/io.f1re.ai.mps.mcp/io.f1re.ai.mps.mcp.msd" folder="" />
+    </projectModules>
+  </component>
+</project>

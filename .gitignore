@@ -1,0 +1,18 @@
+# Ignore local Claude settings
+.claude/settings.local.json
+# Ignore JetBrains MPS auto-generated skills
+.claude/skills/mps-*
+
+.gradle
+
+code/*.xml
+
+build/
+
+**/classes_gen
+**/source_gen
+**/source_gen.caches
+**/test_gen
+**/test_gen.caches
+.agents/*
+.claude/*
