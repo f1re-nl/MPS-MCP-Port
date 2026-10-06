@@ -1,0 +1,155 @@
+/*
+ * Gradle build for an MPS project, using itemis' mps-gradle-plugin
+ * (https://github.com/mbeddr/mps-gradle-plugin) to download the MPS
+ * distribution and generate models.
+ * Partly generated with Claude Code
+ */
+
+/*
+ * Dependency-flow:
+ * resolveMcpSdk / resolveMps
+ * |
+ * -> generate
+ * |
+ * -> exportBuildScript
+ * |
+ * -> packagePlugins
+ * |
+ * -> assemble
+ * |
+ * -> copyPlugin
+ */
+
+plugins {
+    id 'base'
+    id 'de.itemis.mps.gradle.common' version '1.30.1.1.bc0f59d'
+}
+
+import de.itemis.mps.gradle.tasks.MpsGenerate
+import de.itemis.mps.gradle.RunAntScript
+
+ext {
+    mpsVersion = '2025.1.1'
+    mpsHomeDir = file("$buildDir/mps")
+    artifactsDir = file("$buildDir/artifacts")
+
+    // Only io.f1re.ai.mps.build needs to go through the lightweight
+    // de.itemis.mps.gradle "generate" task - just enough to produce the
+    // f1reMcpPlugins Ant script. Everything that uses the project's own
+    // custom languages (io.f1re.ai.mps.mcp, and the languages themselves)
+    // is generated and compiled by that Ant script instead, since it drives
+    // MPS's real backend (which sequences languages before their consumers
+    // correctly) rather than this lightweight harness (which doesn't).
+    languageModules = [
+    ]
+    solutionModules = [
+    'io.f1re.ai.mps.build',
+    ]
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://artifacts.itemis.cloud/repository/maven-mps/' }
+    // Hosts org.jetbrains.intellij.deps:jdom, needed below because the
+    // com.jetbrains:mps distribution artifact doesn't bundle a jdom jar,
+    // even though jetbrains.mps.build.ant's <generate> task requires one.
+    maven { url = 'https://cache-redirector.jetbrains.com/intellij-dependencies' }
+}
+
+configurations {
+    mpsDist
+    mcpSdk
+    jdomForAnt
+}
+
+dependencies {
+    // Resolves the MPS distribution zip as a dependency so CI doesn't need
+    // a pre-installed MPS.
+    mpsDist "com.jetbrains:mps:$mpsVersion"
+    mcpSdk "io.modelcontextprotocol.sdk:mcp:2.0.0"
+    mcpSdk "jakarta.servlet:jakarta.servlet-api:6.1.0"
+    jdomForAnt "org.jetbrains.intellij.deps:jdom:2.0.6"
+}
+
+tasks.register('resolveMcpSdk', Copy) {
+    description = 'Downloads the MCP Java SDK jar'
+    from { configurations.mcpSdk }
+    into "$buildDir/mcp"
+}
+
+task resolveMps(type: Copy) {
+    description = 'Downloads and unpacks the MPS distribution'
+    from { configurations.mpsDist.collect { zipTree(it) } }
+    into mpsHomeDir
+}
+
+// MpsGenerate filters modules/models by regular expression rather than exact
+// name, so module names are anchored and alternated here.
+def moduleNamePattern = (languageModules + solutionModules)
+    .collect { "^" + java.util.regex.Pattern.quote(it) + "\$" }
+    .join('|')
+
+tasks.register('generate', MpsGenerate) {
+    dependsOn resolveMps, resolveMcpSdk 
+    description = 'Generates code for all project models'
+    mpsHome = mpsHomeDir
+    projectLocation = file('./code/')
+    if (moduleNamePattern) {
+        modules = moduleNamePattern
+    }
+    // Resolves ${buildDeps} in io.f1re.ai.mps.mcp's module descriptor, which
+    // references the MCP SDK jars copied by resolveMcpSdk. Same macro name as
+    // the buildDeps BuildFolderMacro already declared in io.f1re.ai.mps.build's
+    // BuildProject (which independently resolves it as ../../build/mcp).
+    folderMacros.put('buildDeps', layout.buildDirectory.dir('mcp'))
+}
+
+// The io.f1re.ai.mps.build solution contains a BuildProject (f1reMcpPlugins)
+// whose generated Ant script assumes code as its basedir (Ant defaults
+// basedir to the buildfile's own directory), so it has to be copied there
+// before being run rather than executed from source_gen directly.
+//
+// TODO: running MPS-based tests still needs to be wired up. The older
+// BuildLanguages/TestLanguages task types still exist in this plugin version
+// but are undocumented/deprecated and were intentionally not used.
+
+tasks.register('exportBuildScript', Copy) {
+    dependsOn generate
+    description = 'Copies the generated Ant build script into the MPS project root'
+    from 'code/solutions/io.f1re.ai.mps.build/source_gen/io/f1re/ai/mps/build/f1reMcpPlugins.xml'
+    into 'code'
+    // packagePlugins runs code/build.xml, so the exported script has to
+    // land under that name -- without the rename it was copied as f1reMcpPlugins.xml
+    // and the Ant run silently used a stale, hand-copied build.xml instead.
+    rename { 'build.xml' }
+}
+
+tasks.register('packagePlugins', RunAntScript) {
+    dependsOn exportBuildScript
+    description = 'Runs the exported Ant script to generate, compile and package the MPS languages/solutions into mps.zip'
+    script = file('code/build.xml')
+    // The exported script's "generate" target (jetbrains.mps.build.ant's
+    // <generate> task, with explicit <chunk>s ordering the project's own
+    // languages before the solutions that use them) is what actually does
+    // the model-to-Java generation, correctly handling that ordering in a
+    // way the lightweight de.itemis.mps.gradle "generate" task above
+    // cannot. Its default "build" target only compiles+packages whatever
+    // source_gen already contains, so both targets have to run, in order.
+    targets = ['generate', 'build']
+    scriptClasspath = fileTree("$mpsHomeDir/lib/ant/lib") { include '*.jar' } + configurations.jdomForAnt
+}
+
+tasks.named('assemble') {
+    dependsOn packagePlugins
+    description = 'Assembles the distributable artifacts for this MPS project'
+}
+
+tasks.register('copyPlugin', Copy) {
+    dependsOn assemble
+    description = 'Copies the generated f1reMcpPlugins into the project root'
+    from 'code/build/artifacts/'
+    into 'build/artifacts/'
+}
+
+// default should be "do all"
+defaultTasks 'copyPlugin'
