@@ -1,0 +1,13 @@
+pluginManagement {
+    repositories {
+        maven { url = 'https://artifacts.itemis.cloud/repository/maven-mps' }
+        gradlePluginPortal()
+    }
+}
+
+plugins {
+    // For JVM management
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
+}
+
+rootProject.name = 'MPS-MCP-Backport'
