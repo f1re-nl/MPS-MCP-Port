@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="io.f1re.ai.mps.mcp.stubs" uuid="f789fa8c-cc06-48c8-a575-1de373697d60" moduleVersion="0">
+<solution name="io.f1re.ai.mps.mcp.stubs" uuid="f789fa8c-cc06-48c8-a575-1de373697d60" moduleVersion="0" pluginKind="PLUGIN_CORE" compileInMPS="true">
   <models>
-    <modelRoot contentPath="${module}" type="default">
-      <sourceRoot path="${module}/models" />
-    </modelRoot>
     <modelRoot contentPath="${buildDeps}" type="java_classes">
       <sourceRoot location="itu-1.14.0.jar" />
       <sourceRoot location="jackson-annotations-2.20.jar" />
@@ -23,9 +20,12 @@
     <modelRoot contentPath="${mpsHome}/lib/mps-tuples.jar!/" type="java_classes">
       <sourceRoot location="." />
     </modelRoot>
+    <modelRoot contentPath="${module}" type="default">
+      <sourceRoot location="models" />
+    </modelRoot>
   </models>
   <facets>
-    <facet type="java" compile="mps" classes="mps" ext="no">
+    <facet type="java" compile="mps" classes="mps" ext="no" languageLevel="JAVA_10">
       <classes generated="true" path="${module}/classes_gen" />
       <library location="${mpsHome}/lib/mps-tuples.jar" />
       <library location="${buildDeps}/jackson-annotations-2.20.jar" />
@@ -40,6 +40,19 @@
       <library location="${buildDeps}/reactor-core-3.7.0.jar" />
     </facet>
   </facets>
+  <stubModelEntries>
+    <stubModelEntry path="${buildDeps}/jackson-annotations-2.20.jar" />
+    <stubModelEntry path="${buildDeps}/jackson-core-3.0.3.jar" />
+    <stubModelEntry path="${buildDeps}/jackson-databind-3.0.3.jar" />
+    <stubModelEntry path="${buildDeps}/jackson-dataformat-yaml-3.0.3.jar" />
+    <stubModelEntry path="${buildDeps}/json-schema-validator-3.0.0.jar" />
+    <stubModelEntry path="${buildDeps}/mcp-2.0.0.jar" />
+    <stubModelEntry path="${buildDeps}/mcp-core-2.0.0.jar" />
+    <stubModelEntry path="${buildDeps}/mcp-json-jackson3-2.0.0.jar" />
+    <stubModelEntry path="${buildDeps}/reactive-streams-1.0.4.jar" />
+    <stubModelEntry path="${buildDeps}/reactor-core-3.7.0.jar" />
+  </stubModelEntries>
+  <sourcePath />
   <dependencies>
     <dependency reexport="false">6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)</dependency>
   </dependencies>
