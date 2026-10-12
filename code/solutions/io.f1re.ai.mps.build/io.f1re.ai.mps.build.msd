@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="io.f1re.ai.mps.build" uuid="700024a3-c3be-4d70-8b99-ee5aaf9e5cc2" moduleVersion="0">
+<solution name="io.f1re.ai.mps.build" uuid="700024a3-c3be-4d70-8b99-ee5aaf9e5cc2" moduleVersion="0" compileInMPS="false">
   <models>
     <modelRoot contentPath="${module}" type="default">
-      <sourceRoot path="${module}/models" />
+      <sourceRoot location="models" />
     </modelRoot>
   </models>
   <facets>
@@ -10,6 +10,7 @@
       <classes generated="true" path="${module}/classes_gen" />
     </facet>
   </facets>
+  <sourcePath />
   <dependencies>
     <dependency reexport="false">422c2909-59d6-41a9-b318-40e6256b250f(jetbrains.mps.ide.build)</dependency>
   </dependencies>
