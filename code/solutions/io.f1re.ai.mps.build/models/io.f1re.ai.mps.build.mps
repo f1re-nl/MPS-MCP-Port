@@ -480,7 +480,6 @@
         </node>
       </node>
       <node concept="1E1JtA" id="1ooV1OtUs2D" role="2G$12L">
-        <property role="BnDLt" value="true" />
         <property role="TrG5h" value="io.f1re.ai.mps.mcp.stubs" />
         <property role="3LESm3" value="f789fa8c-cc06-48c8-a575-1de373697d60" />
         <node concept="55IIr" id="1ooV1OtUs2G" role="3LF7KH">
@@ -497,19 +496,6 @@
         <node concept="1SiIV0" id="1ooV1OtUs8h" role="3bR37C">
           <node concept="3bR9La" id="1ooV1OtUs8i" role="1SiIV1">
             <ref role="3bR37D" to="ffeo:mXGwHwhVPj" resolve="JDK" />
-          </node>
-        </node>
-        <node concept="1SiIV0" id="1ooV1OtUs8m" role="3bR37C">
-          <node concept="1BurEX" id="1ooV1OtUs8n" role="1SiIV1">
-            <node concept="398BVA" id="1ooV1OtUs8j" role="1BurEY">
-              <ref role="398BVh" node="5RzOk$jslpp" resolve="mpsHome" />
-              <node concept="2Ry0Ak" id="1ooV1OtUs8k" role="iGT6I">
-                <property role="2Ry0Am" value="lib" />
-                <node concept="2Ry0Ak" id="1ooV1OtUs8l" role="2Ry0An">
-                  <property role="2Ry0Am" value="mps-tuples.jar" />
-                </node>
-              </node>
-            </node>
           </node>
         </node>
         <node concept="1SiIV0" id="1ooV1OtUs8u" role="3bR37C">
