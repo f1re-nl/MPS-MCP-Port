@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="io.f1re.ai.mps.mcp.ports" uuid="d9c9f15b-8e97-4ffa-a275-2ad9c9093942" moduleVersion="0" pluginKind="PLUGIN_CORE" compileInMPS="true">
+<solution name="io.f1re.ai.mps.mcp.ports" uuid="d9c9f15b-8e97-4ffa-a275-2ad9c9093942" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />
@@ -8,11 +8,9 @@
   <facets>
     <facet type="java" compile="mps" classes="mps" ext="yes" languageLevel="JAVA_10">
       <classes generated="true" path="${module}/classes_gen" />
+      <source location="${module}/resources" />
     </facet>
   </facets>
-  <sourcePath>
-    <source path="${module}/resources" />
-  </sourcePath>
   <dependencies>
     <dependency reexport="false">8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)</dependency>
     <dependency reexport="false">742f6602-5a2f-4313-aa6e-ae1cd4ffdc61(MPS.Platform)</dependency>
