@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model ref="r:b6186e37-30fb-4782-ae4f-e19d8b1d709f(io.f1re.ai.mps.mcp.ports.plugin)">
   <persistence version="9" />
+  <attribute name="doNotGenerate" value="false" />
   <languages>
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
@@ -35003,7 +35004,7 @@
                         </node>
                         <node concept="3clFbS" id="n2v9DqsOts" role="3clF47" />
                         <node concept="2AHcQZ" id="n2v9DqsOtt" role="2AJF6D">
-                          <ref role="2AI5Lk" to="wyt6:~Override" />
+                          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                         </node>
                       </node>
                       <node concept="2tJIrI" id="n2v9Dqt_fr" role="jymVt" />
@@ -36297,7 +36298,7 @@
             <node concept="2ShNRf" id="n2v9DqrmMO" role="33vP2m">
               <node concept="2Jqq0_" id="n2v9DqrITL" role="2ShVmc">
                 <node concept="3uibUv" id="n2v9DqrLnP" role="HW$YZ">
-                  <ref role="3uigEE" to="k2t0:~IChecker$AbstractRootChecker" resolve="AbstractRootChecker" />
+                  <ref role="3uigEE" to="k2t0:~IChecker$AbstractRootChecker" resolve="IChecker.AbstractRootChecker" />
                   <node concept="3uibUv" id="n2v9DqshyM" role="11_B2D">
                     <ref role="3uigEE" to="d6hs:~NodeReportItem" resolve="NodeReportItem" />
                   </node>
@@ -36318,7 +36319,7 @@
             </node>
             <node concept="2BANLN" id="n2v9DqrElz" role="1tU5fm">
               <node concept="3uibUv" id="n2v9DqrHro" role="_ZDj9">
-                <ref role="3uigEE" to="k2t0:~IChecker$AbstractRootChecker" resolve="AbstractRootChecker" />
+                <ref role="3uigEE" to="k2t0:~IChecker$AbstractRootChecker" resolve="IChecker.AbstractRootChecker" />
                 <node concept="3uibUv" id="n2v9DqsdKb" role="11_B2D">
                   <ref role="3uigEE" to="d6hs:~NodeReportItem" resolve="NodeReportItem" />
                 </node>
@@ -79066,7 +79067,7 @@
                                       </node>
                                     </node>
                                     <node concept="Rm8GO" id="4Zsewfmde7Q" role="37wK5m">
-                                      <ref role="1Px2BO" node="5nWn_qy_8KI" resolve="McpErrorCode" />
+                                      <ref role="1Px2BO" node="5nWn_qy_8KI" resolve="AbstractOps.McpErrorCode" />
                                       <ref role="Rm8GQ" node="5nWn_qy_8KR" resolve="NOT_FOUND" />
                                     </node>
                                     <node concept="10Nm6u" id="4Zsewfmde7R" role="37wK5m" />
@@ -79213,7 +79214,7 @@
                                             </node>
                                           </node>
                                           <node concept="Rm8GO" id="4Zsewfmde8N" role="37wK5m">
-                                            <ref role="1Px2BO" node="5nWn_qy_8KI" resolve="McpErrorCode" />
+                                            <ref role="1Px2BO" node="5nWn_qy_8KI" resolve="AbstractOps.McpErrorCode" />
                                             <ref role="Rm8GQ" node="5nWn_qy_8KX" resolve="INTERNAL_ERROR" />
                                           </node>
                                           <node concept="10Nm6u" id="4Zsewfmde8O" role="37wK5m" />
@@ -162588,7 +162589,7 @@
                                     </node>
                                     <node concept="3clFbS" id="6c795u_cnQa" role="3clF47" />
                                     <node concept="2AHcQZ" id="6c795u_cnQb" role="2AJF6D">
-                                      <ref role="2AI5Lk" to="wyt6:~Override" />
+                                      <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                                     </node>
                                   </node>
                                   <node concept="3clFb_" id="AdckQJ3IUC" role="jymVt">
