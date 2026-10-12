@@ -473,6 +473,11 @@
             <ref role="3bR37D" to="ffeo:1ia2VB5guYy" resolve="MPS.IDEA" />
           </node>
         </node>
+        <node concept="1SiIV0" id="5giq1vhNTZr" role="3bR37C">
+          <node concept="3bR9La" id="5giq1vhNTZs" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:7Kfy9QB6L2N" resolve="jetbrains.mps.baseLanguage.tuples.runtime" />
+          </node>
+        </node>
         <node concept="1SiIV0" id="4xwCK3epIrN" role="3bR37C">
           <node concept="3bR9La" id="4xwCK3epIrO" role="1SiIV1">
             <ref role="3bR37D" node="5RzOk$jslq7" resolve="io.f1re.ai.mps.mcp" />
