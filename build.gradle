@@ -29,7 +29,7 @@ import de.itemis.mps.gradle.tasks.MpsGenerate
 import de.itemis.mps.gradle.RunAntScript
 
 ext {
-    mpsVersion = '2024.1.6'
+    mpsVersion = '2024.3.2'
     mpsHomeDir = file("$buildDir/mps")
     artifactsDir = file("$buildDir/artifacts")
 
