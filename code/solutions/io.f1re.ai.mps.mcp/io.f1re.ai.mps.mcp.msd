@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="io.f1re.ai.mps.mcp" uuid="efa15875-34f2-441b-8b63-48ada5190388" moduleVersion="0">
+<solution name="io.f1re.ai.mps.mcp" uuid="efa15875-34f2-441b-8b63-48ada5190388" moduleVersion="0" pluginKind="PLUGIN_CORE" compileInMPS="true">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />
@@ -10,6 +10,7 @@
       <classes generated="true" path="${module}/classes_gen" />
     </facet>
   </facets>
+  <sourcePath />
   <dependencies>
     <dependency reexport="false">6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)</dependency>
     <dependency reexport="false">1ed103c3-3aa6-49b7-9c21-6765ee11f224(MPS.Editor)</dependency>
