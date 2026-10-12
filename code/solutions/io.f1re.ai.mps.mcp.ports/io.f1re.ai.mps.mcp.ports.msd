@@ -48,6 +48,7 @@
     <module reference="efa15875-34f2-441b-8b63-48ada5190388(io.f1re.ai.mps.mcp)" version="0" />
     <module reference="d9c9f15b-8e97-4ffa-a275-2ad9c9093942(io.f1re.ai.mps.mcp.ports)" version="0" />
     <module reference="f789fa8c-cc06-48c8-a575-1de373697d60(io.f1re.ai.mps.mcp.stubs)" version="0" />
+    <module reference="d44dab97-aaac-44cb-9745-8a14db674c03(jetbrains.mps.baseLanguage.tuples.runtime)" version="0" />
     <module reference="d9240d28-a784-48a5-ab3b-69ecc05610cb(io.f1re.ai.mps.mcp.tools)" version="0" />
     <module reference="d44dab97-aaac-44cb-9745-8a14db674c03(jetbrains.mps.baseLanguage.tuples.runtime)" version="0" />
     <module reference="65557aaa-5381-435d-b705-3f8d546e0f40(jetbrains.mps.java.core)" version="0" />
