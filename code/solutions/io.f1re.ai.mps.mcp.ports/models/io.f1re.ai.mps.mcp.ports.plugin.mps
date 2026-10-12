@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model ref="r:b6186e37-30fb-4782-ae4f-e19d8b1d709f(io.f1re.ai.mps.mcp.ports.plugin)">
   <persistence version="9" />
-  <attribute name="doNotGenerate" value="false" />
   <languages>
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
@@ -100,8 +99,8 @@
     <import index="cjdg" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.execution.ui(MPS.IDEA/)" />
     <import index="zn9m" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util(MPS.IDEA/)" />
     <import index="gp7a" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project.dependency(MPS.Core/)" />
-    <import index="tq99" ref="r:2ff63e4e-d3c5-4094-b4e7-70a41cc7df53(io.f1re.ai.mps.mcp.plugin)" />
     <import index="upz5" ref="r:33366a6f-09e8-45e7-ae7f-cb8cf0c7ed05(jetbrains.mps.baseLanguage.tuples.runtime)" />
+    <import index="tq99" ref="r:2ff63e4e-d3c5-4094-b4e7-70a41cc7df53(io.f1re.ai.mps.mcp.plugin)" />
     <import index="90d" ref="r:421d64ed-8024-497f-aeab-8bddeb389dd2(jetbrains.mps.lang.extension.methods)" implicit="true" />
   </imports>
   <registry>
@@ -34631,6 +34630,9 @@
                                               <node concept="liA8E" id="4ZsewflYvSH" role="2OqNvi">
                                                 <ref role="37wK5l" to="dush:~PersistenceFacade.asString(org.jetbrains.mps.openapi.module.SModuleReference)" resolve="asString" />
                                                 <node concept="2OqwBi" id="4ZsewflYvTO" role="37wK5m">
+                                                  <node concept="liA8E" id="4ZsewflYvTP" role="2OqNvi">
+                                                    <ref role="37wK5l" to="lui2:~SModule.getModuleReference()" resolve="getModuleReference" />
+                                                  </node>
                                                   <node concept="2OqwBi" id="5giq1vhLsDQ" role="2Oq$k0">
                                                     <node concept="37vLTw" id="5giq1vhLoF3" role="2Oq$k0">
                                                       <ref role="3cqZAo" node="5giq1vhJVjn" resolve="mr" />
@@ -34638,9 +34640,6 @@
                                                     <node concept="liA8E" id="5giq1vhLBdH" role="2OqNvi">
                                                       <ref role="37wK5l" to="upz5:vUyTRnKaZr" resolve="_0" />
                                                     </node>
-                                                  </node>
-                                                  <node concept="liA8E" id="4ZsewflYvTP" role="2OqNvi">
-                                                    <ref role="37wK5l" to="lui2:~SModule.getModuleReference()" resolve="getModuleReference" />
                                                   </node>
                                                 </node>
                                               </node>
@@ -66672,9 +66671,28 @@
                                         <ref role="3cqZAo" node="4T8ZQis47zz" resolve="descriptor" />
                                       </node>
                                       <node concept="liA8E" id="4T8ZQis47zY" role="2OqNvi">
-                                        <ref role="37wK5l" to="w0gx:~ModuleDescriptor.updateFacetDescriptor(org.jetbrains.mps.openapi.module.SModuleFacet)" resolve="updateFacetDescriptor" />
+                                        <ref role="37wK5l" to="w0gx:~ModuleDescriptor.updateFacetDescriptor(org.jetbrains.mps.openapi.module.SModuleFacet,org.jetbrains.mps.openapi.persistence.ModulePersistenceContext)" resolve="updateFacetDescriptor" />
                                         <node concept="37vLTw" id="4T8ZQis47zZ" role="37wK5m">
                                           <ref role="3cqZAo" node="4T8ZQis47wC" resolve="existing" />
+                                        </node>
+                                        <node concept="2YIFZM" id="1b1QHOY$cCN" role="37wK5m">
+                                          <ref role="37wK5l" to="j8aq:~PersistenceContextImpl.forModule(jetbrains.mps.project.AbstractModule)" resolve="forModule" />
+                                          <ref role="1Pybhc" to="j8aq:~PersistenceContextImpl" resolve="PersistenceContextImpl" />
+                                          <node concept="1eOMI4" id="1b1QHOYAk7C" role="37wK5m">
+                                            <node concept="10QFUN" id="1b1QHOYAk7_" role="1eOMHV">
+                                              <node concept="3uibUv" id="1b1QHOYAJgr" role="10QFUM">
+                                                <ref role="3uigEE" to="z1c4:~AbstractModule" resolve="AbstractModule" />
+                                              </node>
+                                              <node concept="2OqwBi" id="1b1QHOY$P7Q" role="10QFUP">
+                                                <node concept="37vLTw" id="1b1QHOY$AxC" role="2Oq$k0">
+                                                  <ref role="3cqZAo" node="4T8ZQis47wC" resolve="existing" />
+                                                </node>
+                                                <node concept="liA8E" id="1b1QHOY_fUh" role="2OqNvi">
+                                                  <ref role="37wK5l" to="lui2:~SModuleFacet.getModule()" resolve="getModule" />
+                                                </node>
+                                              </node>
+                                            </node>
+                                          </node>
                                         </node>
                                       </node>
                                     </node>
