@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model ref="r:b6186e37-30fb-4782-ae4f-e19d8b1d709f(io.f1re.ai.mps.mcp.ports.plugin)">
   <persistence version="9" />
+  <attribute name="doNotGenerate" value="false" />
   <languages>
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
@@ -61958,7 +61959,7 @@
                             </node>
                             <node concept="2ShNRf" id="vMNxm7$Qu6" role="33vP2m">
                               <node concept="1pGfFk" id="vMNxm7$Qu7" role="2ShVmc">
-                                <ref role="37wK5l" to="smoa:~Renamer.&lt;init&gt;(jetbrains.mps.project.Project,jetbrains.mps.project.AbstractModule,java.util.function.Consumer)" resolve="Renamer" />
+                                <ref role="37wK5l" to="smoa:~Renamer.&lt;init&gt;(jetbrains.mps.project.MPSProject,jetbrains.mps.project.AbstractModule,java.util.function.Consumer)" resolve="Renamer" />
                                 <node concept="37vLTw" id="vMNxm7$Qu8" role="37wK5m">
                                   <ref role="3cqZAo" node="vMNxm7$Pbg" resolve="mpsProject" />
                                 </node>
@@ -86208,71 +86209,27 @@
             <node concept="10Nm6u" id="5nWn_qyZh0h" role="3uHU7w" />
           </node>
           <node concept="3clFbS" id="5nWn_qyZh0j" role="3clFbx">
-            <node concept="3SKdUt" id="6c795u$ZPkD" role="3cqZAp">
-              <node concept="1PaTwC" id="6c795u$ZPkE" role="1aUNEU">
-                <node concept="3oM_SD" id="6c795u$ZU16" role="1PaTwD">
-                  <property role="3oM_SC" value="FIXME" />
+            <node concept="3clFbF" id="5nWn_qyZh0k" role="3cqZAp">
+              <node concept="2OqwBi" id="5nWn_qyZiMX" role="3clFbG">
+                <node concept="37vLTw" id="5nWn_qyZhvJ" role="2Oq$k0">
+                  <ref role="3cqZAo" node="5nWn_qyZgTz" resolve="obj" />
                 </node>
-                <node concept="3oM_SD" id="6c795u$ZUkD" role="1PaTwD">
-                  <property role="3oM_SC" value="getLoadExtensions" />
-                </node>
-                <node concept="3oM_SD" id="6c795u$ZZle" role="1PaTwD">
-                  <property role="3oM_SC" value="is" />
-                </node>
-                <node concept="3oM_SD" id="6c795u$ZZli" role="1PaTwD">
-                  <property role="3oM_SC" value="not" />
-                </node>
-                <node concept="3oM_SD" id="6c795u$ZZln" role="1PaTwD">
-                  <property role="3oM_SC" value="supported" />
-                </node>
-                <node concept="3oM_SD" id="6c795u$ZZlt" role="1PaTwD">
-                  <property role="3oM_SC" value="in" />
-                </node>
-                <node concept="3oM_SD" id="6c795u$ZZl$" role="1PaTwD">
-                  <property role="3oM_SC" value="MPS" />
-                </node>
-                <node concept="3oM_SD" id="6c795u$ZZlG" role="1PaTwD">
-                  <property role="3oM_SC" value="2022.2.4." />
-                </node>
-                <node concept="3oM_SD" id="6c795u$ZZnr" role="1PaTwD">
-                  <property role="3oM_SC" value="Could" />
-                </node>
-                <node concept="3oM_SD" id="6c795u$ZZoD" role="1PaTwD">
-                  <property role="3oM_SC" value="be" />
-                </node>
-                <node concept="3oM_SD" id="6c795u$ZZoO" role="1PaTwD">
-                  <property role="3oM_SC" value="reimplemented" />
-                </node>
-                <node concept="3oM_SD" id="6c795u$ZZpy" role="1PaTwD">
-                  <property role="3oM_SC" value="here" />
-                </node>
-              </node>
-            </node>
-            <node concept="1X3_iC" id="6c795u$ZudS" role="3cqZAp">
-              <property role="3V$3am" value="statement" />
-              <property role="3V$3ak" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123136/1068581517665" />
-              <node concept="3clFbF" id="5nWn_qyZh0k" role="8Wnug">
-                <node concept="2OqwBi" id="5nWn_qyZiMX" role="3clFbG">
-                  <node concept="37vLTw" id="5nWn_qyZhvJ" role="2Oq$k0">
-                    <ref role="3cqZAo" node="5nWn_qyZgTz" resolve="obj" />
+                <node concept="liA8E" id="5nWn_qyZiMY" role="2OqNvi">
+                  <ref role="37wK5l" to="33ny:~Map.put(java.lang.Object,java.lang.Object)" resolve="put" />
+                  <node concept="Xl_RD" id="5nWn_qyZiMZ" role="37wK5m">
+                    <property role="Xl_RC" value="loadExtensions" />
                   </node>
-                  <node concept="liA8E" id="5nWn_qyZiMY" role="2OqNvi">
-                    <ref role="37wK5l" to="33ny:~Map.put(java.lang.Object,java.lang.Object)" resolve="put" />
-                    <node concept="Xl_RD" id="5nWn_qyZiMZ" role="37wK5m">
-                      <property role="Xl_RC" value="loadExtensions" />
+                  <node concept="2OqwBi" id="5nWn_qz19tu" role="37wK5m">
+                    <node concept="2OqwBi" id="5nWn_qyZjmb" role="2Oq$k0">
+                      <node concept="37vLTw" id="5nWn_qyZjga" role="2Oq$k0">
+                        <ref role="3cqZAo" node="5nWn_qyZh08" resolve="javaFacet" />
+                      </node>
+                      <node concept="liA8E" id="5nWn_qyZjmc" role="2OqNvi">
+                        <ref role="37wK5l" to="b0pz:~JavaModuleFacet.getLoadExtensions()" resolve="getLoadExtensions" />
+                      </node>
                     </node>
-                    <node concept="2OqwBi" id="5nWn_qz19tu" role="37wK5m">
-                      <node concept="2OqwBi" id="5nWn_qyZjmb" role="2Oq$k0">
-                        <node concept="37vLTw" id="5nWn_qyZjga" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5nWn_qyZh08" resolve="javaFacet" />
-                        </node>
-                        <node concept="liA8E" id="5nWn_qyZjmc" role="2OqNvi">
-                          <ref role="37wK5l" to="b0pz:~JavaModuleFacet.getLoadExtensions()" resolve="getLoadExtensions" />
-                        </node>
-                      </node>
-                      <node concept="liA8E" id="5nWn_qz19tv" role="2OqNvi">
-                        <ref role="37wK5l" to="wyt6:~Enum.name()" resolve="name" />
-                      </node>
+                    <node concept="liA8E" id="5nWn_qz19tv" role="2OqNvi">
+                      <ref role="37wK5l" to="wyt6:~Enum.name()" resolve="name" />
                     </node>
                   </node>
                 </node>
