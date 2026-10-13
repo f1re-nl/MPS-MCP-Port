@@ -19,15 +19,18 @@
     <dependency reexport="false">65557aaa-5381-435d-b705-3f8d546e0f40(jetbrains.mps.java.core)</dependency>
     <dependency reexport="false">f789fa8c-cc06-48c8-a575-1de373697d60(io.f1re.ai.mps.mcp.stubs)</dependency>
     <dependency reexport="false">498d89d2-c2e9-11e2-ad49-6cf049e62fe5(MPS.IDEA)</dependency>
+    <dependency reexport="false">efa15875-34f2-441b-8b63-48ada5190388(io.f1re.ai.mps.mcp)</dependency>
   </dependencies>
   <languageVersions>
     <language slang="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" version="12" />
     <language slang="l:fd392034-7849-419d-9071-12563d152375:jetbrains.mps.baseLanguage.closures" version="0" />
     <language slang="l:83888646-71ce-4f1c-9c53-c54016f6ad4f:jetbrains.mps.baseLanguage.collections" version="2" />
     <language slang="l:f2801650-65d5-424e-bb1b-463a8781b786:jetbrains.mps.baseLanguage.javadoc" version="2" />
+    <language slang="l:c7d5b9dd-a05f-4be2-bc73-f2e16994cc67:jetbrains.mps.baseLanguage.lightweightdsl" version="1" />
     <language slang="l:760a0a8c-eabb-4521-8bfd-65db761a9ba3:jetbrains.mps.baseLanguage.logging" version="0" />
     <language slang="l:63650c59-16c8-498a-99c8-005c7ee9515d:jetbrains.mps.lang.access" version="0" />
     <language slang="l:ceab5195-25ea-4f22-9b92-103b95ca8c0c:jetbrains.mps.lang.core" version="2" />
+    <language slang="l:c0080a47-7e37-4558-bee9-9ae18e690549:jetbrains.mps.lang.extension" version="2" />
     <language slang="l:446c26eb-2b7b-4bf0-9b35-f83fa582753e:jetbrains.mps.lang.modelapi" version="0" />
     <language slang="l:7866978e-a0f0-4cc7-81bc-4d213d9375e1:jetbrains.mps.lang.smodel" version="19" />
     <language slang="l:c7fb639f-be78-4307-89b0-b5959c3fa8c8:jetbrains.mps.lang.text" version="0" />
@@ -41,8 +44,10 @@
     <module reference="498d89d2-c2e9-11e2-ad49-6cf049e62fe5(MPS.IDEA)" version="0" />
     <module reference="8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)" version="0" />
     <module reference="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61(MPS.Platform)" version="0" />
+    <module reference="efa15875-34f2-441b-8b63-48ada5190388(io.f1re.ai.mps.mcp)" version="0" />
     <module reference="d9c9f15b-8e97-4ffa-a275-2ad9c9093942(io.f1re.ai.mps.mcp.ports)" version="0" />
     <module reference="f789fa8c-cc06-48c8-a575-1de373697d60(io.f1re.ai.mps.mcp.stubs)" version="0" />
+    <module reference="d9240d28-a784-48a5-ab3b-69ecc05610cb(io.f1re.ai.mps.mcp.tools)" version="0" />
     <module reference="65557aaa-5381-435d-b705-3f8d546e0f40(jetbrains.mps.java.core)" version="0" />
     <module reference="2d3c70e9-aab2-4870-8d8d-6036800e4103(jetbrains.mps.kernel)" version="0" />
   </dependencyVersions>
