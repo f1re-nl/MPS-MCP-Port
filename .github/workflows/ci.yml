@@ -25,6 +25,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-java@v4
+        with:
+          distribution: jetbrains
+          java-version: '21'
+
       - name: Build the project
         run: cd $GITHUB_WORKSPACE && ./gradlew copyPlugin
       # Runs a single command using the runners shell
