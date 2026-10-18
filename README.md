@@ -1,7 +1,7 @@
 # Port of MPS MCP Toolkit to BaseLanguage
 
 This repository contains an AI-generated port of the MPS MCP Kotlin plugin into MPS baselanguage.
-The original code can be found in the (MPS GitHub Repository)[https://github.com/JetBrains/MPS/tree/master/plugins/mcp-tools/src/jetbrains/mps/agents/mcp/tools].
+The original code can be found in the [MPS GitHub Repository](https://github.com/JetBrains/MPS/tree/master/plugins/mcp-tools/src/jetbrains/mps/agents/mcp/tools).
 It also includes a small custom MCP server implementation, integrated into the "Tools" menu of MPS.
 
 The main port is in the branch `2025.1.3`. It contains the baseLanguage port of the MPS MCP Kotlin plugin for MPS 2025.1.3.
