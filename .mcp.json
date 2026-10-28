@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "f1re-mps-mcp-linux": {
+      "type": "stdio",
+      "command": "socat",
+      "args": ["-", "TCP:127.0.0.1:6395"]
+    },
+    "f1re-mps-mcp-win": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["scripts/mcp-bridge.js"]
+    }
+  }
+}
