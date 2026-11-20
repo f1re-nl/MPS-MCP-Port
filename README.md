@@ -14,6 +14,18 @@ The code has some AI-generated test for the "non-stateful" operations of the MCP
 
 If you want assistance in deploying the port on your MPS project, please get in touch via https://www.f1re.io/governed-ai/.
 
+## Connecting an agent
+
+The MCP server starts with the project and listens on `127.0.0.1:6395`. `.mcp.json` configures a
+relay for each platform:
+
+- **Windows:** `scripts/mcp-bridge.js` (`f1re-mps-mcp-win`, needs Node), because `socat` is not
+  available on a stock Windows machine. It also keeps the agent's session alive across server restarts.
+- **Linux/macOS:** `socat` (`f1re-mps-mcp-linux`).
+
+See [docs/MCP_Server_connection.md](docs/MCP_Server_connection.md) for the lifecycle, the extension
+points for tools, resources and instructions, and troubleshooting.
+
 ## Solution overview
 
 - io.f1re.ai.mps.build
