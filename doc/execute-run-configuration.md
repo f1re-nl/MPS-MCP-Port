@@ -1,0 +1,4 @@
+# Reading fullOutputPath after a timeout
+
+If f1re-mcp-execute-run-configuration returns without exitCode, the run is still going in MPS. Its output keeps going to the file named in fullOutputPath, so read that file with a normal file read instead of calling the tool again. Output is written through a buffer, so the file can lag behind while the process runs, and it is complete only once the process ends. For JUnit runs, the run is finished when the file contains <FINISH_RUN_TEST>. A test failed if a failure marker appears between its <START_TEST> and <FINISH_TEST> lines. The exit code is never written to the file, so take pass or fail from these markers. Poll at intervals that suit how long the tests take. The file is not deleted automatically, so remove it yourself when you no longer need it.
+
