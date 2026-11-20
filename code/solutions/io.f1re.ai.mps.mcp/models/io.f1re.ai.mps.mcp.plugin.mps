@@ -112,7 +112,6 @@
         <child id="1154032183016" name="body" index="2LFqv$" />
       </concept>
       <concept id="1197027756228" name="jetbrains.mps.baseLanguage.structure.DotExpression" flags="nn" index="2OqwBi">
-        <property id="2523873803623706117" name="isMultiline" index="hSjvv" />
         <child id="1197027771414" name="operand" index="2Oq$k0" />
         <child id="1197027833540" name="operation" index="2OqNvi" />
       </concept>
@@ -280,6 +279,11 @@
         <child id="8276990574886367509" name="finallyClause" index="1zxBo6" />
         <child id="8276990574886367508" name="body" index="1zxBo7" />
       </concept>
+      <concept id="1163668896201" name="jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression" flags="nn" index="3K4zz7">
+        <child id="1163668914799" name="condition" index="3K4Cdx" />
+        <child id="1163668922816" name="ifTrue" index="3K4E3e" />
+        <child id="1163668934364" name="ifFalse" index="3K4GZi" />
+      </concept>
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
         <child id="8356039341262087992" name="line" index="1aUNEU" />
       </concept>
@@ -386,6 +390,10 @@
       <concept id="1227022210526" name="jetbrains.mps.baseLanguage.collections.structure.ClearAllElementsOperation" flags="nn" index="2Kehj3" />
       <concept id="1160612413312" name="jetbrains.mps.baseLanguage.collections.structure.AddElementOperation" flags="nn" index="TSZUe" />
       <concept id="1167380149909" name="jetbrains.mps.baseLanguage.collections.structure.RemoveElementOperation" flags="nn" index="3dhRuq" />
+      <concept id="1240687580870" name="jetbrains.mps.baseLanguage.collections.structure.JoinOperation" flags="nn" index="3uJxvA">
+        <child id="1240687658305" name="delimiter" index="3uJOhx" />
+      </concept>
+      <concept id="1165530316231" name="jetbrains.mps.baseLanguage.collections.structure.IsEmptyOperation" flags="nn" index="1v1jN8" />
     </language>
   </registry>
   <node concept="312cEu" id="4ccOBkbFFja">
@@ -1501,6 +1509,91 @@
                 </node>
               </node>
             </node>
+            <node concept="3cpWs8" id="26_mWGnGWM5" role="3cqZAp">
+              <node concept="3cpWsn" id="26_mWGnGWM8" role="3cpWs9">
+                <property role="TrG5h" value="instructions" />
+                <node concept="2ShNRf" id="26_mWGnGWMa" role="33vP2m">
+                  <node concept="2Jqq0_" id="26_mWGnGWMc" role="2ShVmc">
+                    <node concept="17QB3L" id="26_mWGnGWMd" role="HW$YZ" />
+                  </node>
+                </node>
+                <node concept="_YKpA" id="26_mWGnGWMe" role="1tU5fm">
+                  <node concept="17QB3L" id="26_mWGnGWMg" role="_ZDj9" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="26_mWGnGYiT" role="3cqZAp">
+              <node concept="2OqwBi" id="26_mWGnGYiV" role="3clFbG">
+                <node concept="2OqwBi" id="26_mWGnGYiY" role="2Oq$k0">
+                  <node concept="2O5UvJ" id="26_mWGnGYj1" role="2Oq$k0">
+                    <ref role="2O5UnU" node="26_mWGnGTek" resolve="F1reMPSInstructionsExtensionPoint" />
+                  </node>
+                  <node concept="SfwO_" id="26_mWGnGYj2" role="2OqNvi" />
+                </node>
+                <node concept="2es0OD" id="26_mWGnGYj3" role="2OqNvi">
+                  <node concept="1bVj0M" id="26_mWGnGYj8" role="23t8la">
+                    <node concept="gl6BB" id="26_mWGnGYja" role="1bW2Oz">
+                      <property role="TrG5h" value="ext" />
+                      <node concept="2jxLKc" id="26_mWGnGYjc" role="1tU5fm" />
+                    </node>
+                    <node concept="3clFbS" id="26_mWGnGYjd" role="1bW5cS">
+                      <node concept="2Gpval" id="26_mWGnGYje" role="3cqZAp">
+                        <node concept="2GrKxI" id="26_mWGnGYji" role="2Gsz3X">
+                          <property role="TrG5h" value="func" />
+                        </node>
+                        <node concept="37vLTw" id="26_mWGnGYjj" role="2GsD0m">
+                          <ref role="3cqZAo" node="26_mWGnGYja" />
+                        </node>
+                        <node concept="3clFbS" id="26_mWGnGYjk" role="2LFqv$">
+                          <node concept="SfApY" id="26_mWGnGYjl" role="3cqZAp">
+                            <node concept="3clFbS" id="26_mWGnGYjr" role="SfCbr">
+                              <node concept="3clFbF" id="26_mWGnGYjs" role="3cqZAp">
+                                <node concept="2OqwBi" id="26_mWGnGYju" role="3clFbG">
+                                  <node concept="37vLTw" id="26_mWGnGYjx" role="2Oq$k0">
+                                    <ref role="3cqZAo" node="26_mWGnGWM8" />
+                                  </node>
+                                  <node concept="TSZUe" id="26_mWGnGYjy" role="2OqNvi">
+                                    <node concept="2OqwBi" id="26_mWGnGYj$" role="25WWJ7">
+                                      <node concept="2GrUjf" id="26_mWGnGYjB" role="2Oq$k0">
+                                        <ref role="2Gs0qQ" node="26_mWGnGYji" />
+                                      </node>
+                                      <node concept="1Bd96e" id="26_mWGnGYjC" role="2OqNvi">
+                                        <node concept="37vLTw" id="26_mWGnGYjD" role="1BdPVh">
+                                          <ref role="3cqZAo" node="urMXpvIf0R" resolve="project" />
+                                        </node>
+                                      </node>
+                                    </node>
+                                  </node>
+                                </node>
+                              </node>
+                            </node>
+                            <node concept="TDmWw" id="26_mWGnGYjE" role="TEbGg">
+                              <node concept="3cpWsn" id="26_mWGnGYjI" role="TDEfY">
+                                <property role="TrG5h" value="e" />
+                                <node concept="3uibUv" id="26_mWGnGYjK" role="1tU5fm">
+                                  <ref role="3uigEE" to="wyt6:~Throwable" resolve="Throwable" />
+                                </node>
+                              </node>
+                              <node concept="3clFbS" id="26_mWGnGYjL" role="TDEfX">
+                                <node concept="2xdQw9" id="26_mWGnGYjM" role="3cqZAp">
+                                  <property role="2xdLsb" value="gZ5fksE/warn" />
+                                  <node concept="Xl_RD" id="26_mWGnGYjO" role="9lYJi">
+                                    <property role="Xl_RC" value="Skipping MCP server instructions that failed to load" />
+                                  </node>
+                                  <node concept="37vLTw" id="26_mWGnGYjP" role="9lYJj">
+                                    <ref role="3cqZAo" node="26_mWGnGYjI" />
+                                  </node>
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
             <node concept="3clFbH" id="12OCR9bsptr" role="3cqZAp" />
             <node concept="3cpWs8" id="5RzOk$jrFyI" role="3cqZAp">
               <node concept="3cpWsn" id="5RzOk$jrFyJ" role="3cpWs9">
@@ -1547,73 +1640,91 @@
                 <node concept="3uibUv" id="2j1ljCNK$54" role="1tU5fm">
                   <ref role="3uigEE" to="zbzf:~McpSyncServer" resolve="McpSyncServer" />
                 </node>
-                <node concept="2OqwBi" id="26_mWGn0RAz" role="33vP2m">
-                  <property role="hSjvv" value="true" />
-                  <node concept="2OqwBi" id="26_mWGn0RAA" role="2Oq$k0">
-                    <property role="hSjvv" value="true" />
-                    <node concept="2OqwBi" id="26_mWGn0RAD" role="2Oq$k0">
-                      <property role="hSjvv" value="true" />
-                      <node concept="2OqwBi" id="26_mWGn0RAG" role="2Oq$k0">
-                        <property role="hSjvv" value="true" />
-                        <node concept="2OqwBi" id="26_mWGn0RAJ" role="2Oq$k0">
-                          <property role="hSjvv" value="true" />
-                          <node concept="2OqwBi" id="26_mWGn0RAM" role="2Oq$k0">
-                            <property role="hSjvv" value="true" />
-                            <node concept="2YIFZM" id="26_mWGn0RAP" role="2Oq$k0">
-                              <ref role="37wK5l" to="zbzf:~McpServer.sync(io.modelcontextprotocol.spec.McpServerTransportProvider)" resolve="sync" />
-                              <ref role="1Pybhc" to="zbzf:~McpServer" resolve="McpServer" />
-                              <node concept="2ShNRf" id="26_mWGn0RAQ" role="37wK5m">
-                                <node concept="1pGfFk" id="26_mWGn0RAS" role="2ShVmc">
-                                  <property role="373rjd" value="true" />
-                                  <ref role="37wK5l" node="26_mWGm_a1O" />
-                                  <node concept="37vLTw" id="26_mWGn0RAT" role="37wK5m">
-                                    <ref role="3cqZAo" node="4yis6bBEVj7" resolve="transportProvider" />
+                <node concept="2OqwBi" id="26_mWGnH8G2" role="33vP2m">
+                  <node concept="2OqwBi" id="26_mWGnH8G5" role="2Oq$k0">
+                    <node concept="2OqwBi" id="26_mWGnH8G8" role="2Oq$k0">
+                      <node concept="2OqwBi" id="26_mWGnH8Gb" role="2Oq$k0">
+                        <node concept="2OqwBi" id="26_mWGnH8Ge" role="2Oq$k0">
+                          <node concept="2OqwBi" id="26_mWGnH8Gh" role="2Oq$k0">
+                            <node concept="2OqwBi" id="26_mWGnH8Gk" role="2Oq$k0">
+                              <node concept="2YIFZM" id="26_mWGnH8Gn" role="2Oq$k0">
+                                <ref role="37wK5l" to="zbzf:~McpServer.sync(io.modelcontextprotocol.spec.McpServerTransportProvider)" resolve="sync" />
+                                <ref role="1Pybhc" to="zbzf:~McpServer" resolve="McpServer" />
+                                <node concept="2ShNRf" id="26_mWGnH8Go" role="37wK5m">
+                                  <node concept="1pGfFk" id="26_mWGnH8Gq" role="2ShVmc">
+                                    <property role="373rjd" value="true" />
+                                    <ref role="37wK5l" node="26_mWGm_a1O" />
+                                    <node concept="37vLTw" id="26_mWGnH8Gr" role="37wK5m">
+                                      <ref role="3cqZAo" node="4yis6bBEVj7" resolve="transportProvider" />
+                                    </node>
                                   </node>
                                 </node>
                               </node>
-                            </node>
-                            <node concept="liA8E" id="26_mWGn0RAU" role="2OqNvi">
-                              <ref role="37wK5l" to="zbzf:~McpServer$SyncSpecification.serverInfo(java.lang.String,java.lang.String)" resolve="serverInfo" />
-                              <node concept="37vLTw" id="26_mWGn0RAV" role="37wK5m">
-                                <ref role="3cqZAo" node="5RzOk$jrN9G" resolve="SERVER_NAME" />
+                              <node concept="liA8E" id="26_mWGnH8Gs" role="2OqNvi">
+                                <ref role="37wK5l" to="zbzf:~McpServer$SyncSpecification.serverInfo(java.lang.String,java.lang.String)" resolve="serverInfo" />
+                                <node concept="37vLTw" id="26_mWGnH8Gt" role="37wK5m">
+                                  <ref role="3cqZAo" node="5RzOk$jrN9G" resolve="SERVER_NAME" />
+                                </node>
+                                <node concept="37vLTw" id="26_mWGnH8Gu" role="37wK5m">
+                                  <ref role="3cqZAo" node="5RzOk$js1bA" resolve="SERVER_VERSIONSTRING" />
+                                </node>
                               </node>
-                              <node concept="37vLTw" id="26_mWGn0RAW" role="37wK5m">
-                                <ref role="3cqZAo" node="5RzOk$js1bA" resolve="SERVER_VERSIONSTRING" />
+                            </node>
+                            <node concept="liA8E" id="26_mWGnH8Gv" role="2OqNvi">
+                              <ref role="37wK5l" to="zbzf:~McpServer$SyncSpecification.capabilities(io.modelcontextprotocol.spec.McpSchema$ServerCapabilities)" resolve="capabilities" />
+                              <node concept="37vLTw" id="26_mWGnH8Gw" role="37wK5m">
+                                <ref role="3cqZAo" node="5RzOk$jrFyJ" resolve="serverCaps" />
                               </node>
                             </node>
                           </node>
-                          <node concept="liA8E" id="26_mWGn0RAX" role="2OqNvi">
-                            <ref role="37wK5l" to="zbzf:~McpServer$SyncSpecification.capabilities(io.modelcontextprotocol.spec.McpSchema$ServerCapabilities)" resolve="capabilities" />
-                            <node concept="37vLTw" id="26_mWGn0RAY" role="37wK5m">
-                              <ref role="3cqZAo" node="5RzOk$jrFyJ" resolve="serverCaps" />
+                          <node concept="liA8E" id="26_mWGnH8Gx" role="2OqNvi">
+                            <ref role="37wK5l" to="zbzf:~McpServer$SyncSpecification.tools(java.util.List)" resolve="tools" />
+                            <node concept="37vLTw" id="26_mWGnH8Gy" role="37wK5m">
+                              <ref role="3cqZAo" node="5RzOk$jolRg" resolve="list" />
                             </node>
                           </node>
                         </node>
-                        <node concept="liA8E" id="26_mWGn0RAZ" role="2OqNvi">
-                          <ref role="37wK5l" to="zbzf:~McpServer$SyncSpecification.tools(java.util.List)" resolve="tools" />
-                          <node concept="37vLTw" id="26_mWGn0RB0" role="37wK5m">
-                            <ref role="3cqZAo" node="5RzOk$jolRg" resolve="list" />
+                        <node concept="liA8E" id="26_mWGnH8Gz" role="2OqNvi">
+                          <ref role="37wK5l" to="zbzf:~McpServer$SyncSpecification.resources(java.util.List)" resolve="resources" />
+                          <node concept="37vLTw" id="26_mWGnH8G$" role="37wK5m">
+                            <ref role="3cqZAo" node="26_mWGn0l4R" resolve="resources" />
                           </node>
                         </node>
                       </node>
-                      <node concept="liA8E" id="26_mWGn0RB1" role="2OqNvi">
-                        <ref role="37wK5l" to="zbzf:~McpServer$SyncSpecification.resources(java.util.List)" resolve="resources" />
-                        <node concept="37vLTw" id="26_mWGn0RB2" role="37wK5m">
-                          <ref role="3cqZAo" node="26_mWGn0l4R" resolve="resources" />
+                      <node concept="liA8E" id="26_mWGnH8G_" role="2OqNvi">
+                        <ref role="37wK5l" to="zbzf:~McpServer$SyncSpecification.instructions(java.lang.String)" resolve="instructions" />
+                        <node concept="3K4zz7" id="26_mWGnH8GA" role="37wK5m">
+                          <node concept="2OqwBi" id="26_mWGnH8GE" role="3K4Cdx">
+                            <node concept="37vLTw" id="26_mWGnH8GH" role="2Oq$k0">
+                              <ref role="3cqZAo" node="26_mWGnGWM8" resolve="instructions" />
+                            </node>
+                            <node concept="1v1jN8" id="26_mWGnH8GI" role="2OqNvi" />
+                          </node>
+                          <node concept="10Nm6u" id="26_mWGnH8GJ" role="3K4E3e" />
+                          <node concept="2OqwBi" id="26_mWGnH8GK" role="3K4GZi">
+                            <node concept="37vLTw" id="26_mWGnH8GN" role="2Oq$k0">
+                              <ref role="3cqZAo" node="26_mWGnGWM8" resolve="instructions" />
+                            </node>
+                            <node concept="3uJxvA" id="26_mWGnH8GO" role="2OqNvi">
+                              <node concept="Xl_RD" id="26_mWGnH8GP" role="3uJOhx">
+                                <property role="Xl_RC" value="&#10;&#10;" />
+                              </node>
+                            </node>
+                          </node>
                         </node>
                       </node>
                     </node>
-                    <node concept="liA8E" id="26_mWGn0RB3" role="2OqNvi">
+                    <node concept="liA8E" id="26_mWGnH8GQ" role="2OqNvi">
                       <ref role="37wK5l" to="zbzf:~McpServer$SyncSpecification.jsonSchemaValidator(io.modelcontextprotocol.json.schema.JsonSchemaValidator)" resolve="jsonSchemaValidator" />
-                      <node concept="2ShNRf" id="26_mWGn0RB4" role="37wK5m">
-                        <node concept="1pGfFk" id="26_mWGn0RB6" role="2ShVmc">
+                      <node concept="2ShNRf" id="26_mWGnH8GR" role="37wK5m">
+                        <node concept="1pGfFk" id="26_mWGnH8GT" role="2ShVmc">
                           <property role="373rjd" value="true" />
                           <ref role="37wK5l" to="5csv:~DefaultJsonSchemaValidator.&lt;init&gt;()" resolve="DefaultJsonSchemaValidator" />
                         </node>
                       </node>
                     </node>
                   </node>
-                  <node concept="liA8E" id="26_mWGn0RB7" role="2OqNvi">
+                  <node concept="liA8E" id="26_mWGnH8GU" role="2OqNvi">
                     <ref role="37wK5l" to="zbzf:~McpServer$SyncSpecification.build()" resolve="build" />
                   </node>
                 </node>
@@ -4021,6 +4132,18 @@
         <node concept="3uibUv" id="26_mWGn0jwJ" role="1ajl9A">
           <ref role="3uigEE" to="zbzf:~McpServerFeatures$SyncResourceSpecification" resolve="SyncResourceSpecification" />
         </node>
+      </node>
+    </node>
+  </node>
+  <node concept="vrV6u" id="26_mWGnGTek">
+    <property role="3GE5qa" value="instructions" />
+    <property role="TrG5h" value="F1reMPSInstructionsExtensionPoint" />
+    <node concept="_YKpA" id="26_mWGnGTem" role="luc8K">
+      <node concept="1ajhzC" id="26_mWGnGTeo" role="_ZDj9">
+        <node concept="3uibUv" id="26_mWGnGTeq" role="1ajw0F">
+          <ref role="3uigEE" to="z1c3:~MPSProject" resolve="MPSProject" />
+        </node>
+        <node concept="17QB3L" id="26_mWGnGTer" role="1ajl9A" />
       </node>
     </node>
   </node>
