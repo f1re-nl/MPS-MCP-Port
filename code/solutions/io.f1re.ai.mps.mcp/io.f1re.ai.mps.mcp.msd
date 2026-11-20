@@ -19,6 +19,8 @@
     <dependency reexport="false">742f6602-5a2f-4313-aa6e-ae1cd4ffdc61(MPS.Platform)</dependency>
     <dependency reexport="false">d44dab97-aaac-44cb-9745-8a14db674c03(jetbrains.mps.baseLanguage.tuples.runtime)</dependency>
     <dependency reexport="false">f789fa8c-cc06-48c8-a575-1de373697d60(io.f1re.ai.mps.mcp.stubs)</dependency>
+    <dependency reexport="false">6ed54515-acc8-4d1e-a16c-9fd6cfe951ea(MPS.Core)</dependency>
+    <dependency reexport="false">8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)</dependency>
   </dependencies>
   <languageVersions>
     <language slang="l:8ece8049-94db-40c8-adfd-01fc74cac57d:io.f1re.ai.mps.mcp.inlineJson" version="0" />
