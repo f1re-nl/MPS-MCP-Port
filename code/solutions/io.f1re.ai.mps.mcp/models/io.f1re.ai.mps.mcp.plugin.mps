@@ -274,6 +274,7 @@
       </concept>
     </language>
     <language id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc">
+      <concept id="6832197706140896242" name="jetbrains.mps.baseLanguage.javadoc.structure.FieldDocComment" flags="ng" index="z59LJ" />
       <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
         <child id="8465538089690331502" name="body" index="TZ5H$" />
       </concept>
@@ -2910,6 +2911,25 @@
     <node concept="3uibUv" id="6uaOz0dWmPJ" role="1zkMxy">
       <ref role="3uigEE" to="guwi:~FilterInputStream" resolve="FilterInputStream" />
     </node>
+  </node>
+  <node concept="312cEu" id="1$nMBq40rHf">
+    <property role="TrG5h" value="MCPConstants" />
+    <node concept="Wx3nA" id="1$nMBq40$FX" role="jymVt">
+      <property role="TrG5h" value="MCP_TIMEOUT_MS" />
+      <node concept="10Oyi0" id="1$nMBq40$FY" role="1tU5fm" />
+      <node concept="3cmrfG" id="1$nMBq40$FZ" role="33vP2m">
+        <property role="3cmrfH" value="900000" />
+      </node>
+      <node concept="3Tm1VV" id="1$nMBq40$G0" role="1B3o_S" />
+      <node concept="z59LJ" id="1$nMBq40$G1" role="lGtFl">
+        <node concept="TZ5HA" id="1$nMBq40$G2" role="TZ5H$">
+          <node concept="1dT_AC" id="1$nMBq40$G3" role="1dT_Ay">
+            <property role="1dT_AB" value="Tool-call timeout of the MCP client in milliseconds. Must match the `timeout` of the f1re-mps-mcp-* servers in .mcp.json. " />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3Tm1VV" id="1$nMBq40rHg" role="1B3o_S" />
   </node>
 </model>
 

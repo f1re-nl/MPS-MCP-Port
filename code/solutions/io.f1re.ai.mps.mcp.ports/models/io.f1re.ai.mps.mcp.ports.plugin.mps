@@ -12,6 +12,7 @@
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="c0080a47-7e37-4558-bee9-9ae18e690549" name="jetbrains.mps.lang.extension" version="2" />
     <use id="c7d5b9dd-a05f-4be2-bc73-f2e16994cc67" name="jetbrains.mps.baseLanguage.lightweightdsl" version="1" />
+    <use id="446c26eb-2b7b-4bf0-9b35-f83fa582753e" name="jetbrains.mps.lang.modelapi" version="0" />
   </languages>
   <imports>
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
@@ -100,7 +101,7 @@
     <import index="zn9m" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util(MPS.IDEA/)" />
     <import index="gp7a" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project.dependency(MPS.Core/)" />
     <import index="tq99" ref="r:2ff63e4e-d3c5-4094-b4e7-70a41cc7df53(io.f1re.ai.mps.mcp.plugin)" />
-    <import index="90d" ref="r:421d64ed-8024-497f-aeab-8bddeb389dd2(jetbrains.mps.lang.extension.methods)" implicit="true" />
+    <import index="90d" ref="r:421d64ed-8024-497f-aeab-8bddeb389dd2(jetbrains.mps.lang.extension.methods)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -158255,6 +158256,15 @@
       </node>
       <node concept="3Tm6S6" id="AdckQJ3CJS" role="1B3o_S" />
     </node>
+    <node concept="Wx3nA" id="1$nMBq4EmKc" role="jymVt">
+      <property role="TrG5h" value="RESPONSE_MARGIN_MS" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3cpWsb" id="1$nMBq4EmKd" role="1tU5fm" />
+      <node concept="1adDum" id="1$nMBq4EmKe" role="33vP2m">
+        <property role="1adDun" value="2000L" />
+      </node>
+      <node concept="3Tm6S6" id="1$nMBq4EmKf" role="1B3o_S" />
+    </node>
     <node concept="312cEu" id="AdckQJ3CGj" role="jymVt">
       <property role="TrG5h" value="ExecFailure" />
       <property role="1EXbeo" value="true" />
@@ -160991,6 +161001,53 @@
               </node>
               <node concept="37vLTw" id="AdckQJ3CUl" role="37wK5m">
                 <ref role="3cqZAo" node="AdckQJ3CJH" resolve="DEFAULT_TIMEOUT_MS" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs8" id="1$nMBq4F54n" role="3cqZAp">
+          <node concept="3cpWsn" id="1$nMBq4F54m" role="3cpWs9">
+            <property role="TrG5h" value="maxTimeout" />
+            <node concept="10Oyi0" id="1$nMBq4F54o" role="1tU5fm" />
+            <node concept="10QFUN" id="1$nMBq4F54p" role="33vP2m">
+              <node concept="2YIFZM" id="1$nMBq4F54I" role="10QFUP">
+                <ref role="1Pybhc" to="wyt6:~Math" resolve="Math" />
+                <ref role="37wK5l" to="wyt6:~Math.max(long,long)" resolve="max" />
+                <node concept="1adDum" id="1$nMBq4F54J" role="37wK5m">
+                  <property role="1adDun" value="0L" />
+                </node>
+                <node concept="3cpWsd" id="1$nMBq4F54K" role="37wK5m">
+                  <node concept="3cpWsd" id="1$nMBq4F54L" role="3uHU7B">
+                    <node concept="10M0yZ" id="1$nMBq4F54W" role="3uHU7B">
+                      <ref role="1PxDUh" to="tq99:1$nMBq40rHf" resolve="MCPConstants" />
+                      <ref role="3cqZAo" to="tq99:1$nMBq40$FX" resolve="MCP_TIMEOUT_MS" />
+                    </node>
+                    <node concept="37vLTw" id="1$nMBq4F54N" role="3uHU7w">
+                      <ref role="3cqZAo" node="AdckQJ3CJL" resolve="START_TIMEOUT_MS" />
+                    </node>
+                  </node>
+                  <node concept="37vLTw" id="1$nMBq4F54O" role="3uHU7w">
+                    <ref role="3cqZAo" node="1$nMBq4EmKc" resolve="RESPONSE_MARGIN_MS" />
+                  </node>
+                </node>
+              </node>
+              <node concept="10Oyi0" id="1$nMBq4F54x" role="10QFUM" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="1$nMBq4F54y" role="3cqZAp">
+          <node concept="37vLTI" id="1$nMBq4F54z" role="3clFbG">
+            <node concept="37vLTw" id="1$nMBq4F54$" role="37vLTJ">
+              <ref role="3cqZAo" node="AdckQJ3CUf" resolve="timeout" />
+            </node>
+            <node concept="2YIFZM" id="1$nMBq4F54R" role="37vLTx">
+              <ref role="1Pybhc" to="wyt6:~Math" resolve="Math" />
+              <ref role="37wK5l" to="wyt6:~Math.min(int,int)" resolve="min" />
+              <node concept="37vLTw" id="1$nMBq4F54S" role="37wK5m">
+                <ref role="3cqZAo" node="AdckQJ3CUf" resolve="timeout" />
+              </node>
+              <node concept="37vLTw" id="1$nMBq4F54T" role="37wK5m">
+                <ref role="3cqZAo" node="1$nMBq4F54m" resolve="maxTimeout" />
               </node>
             </node>
           </node>
