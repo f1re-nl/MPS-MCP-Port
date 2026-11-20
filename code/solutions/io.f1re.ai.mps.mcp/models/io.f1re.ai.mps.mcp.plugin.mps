@@ -67,9 +67,11 @@
     </language>
     <language id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone">
       <concept id="481983775135178834" name="jetbrains.mps.lang.plugin.standalone.structure.ProjectPluginDeclaration" flags="ng" index="2uRRBy">
+        <child id="481983775135178836" name="initBlock" index="2uRRB$" />
         <child id="481983775135178837" name="disposeBlock" index="2uRRB_" />
       </concept>
       <concept id="481983775135178819" name="jetbrains.mps.lang.plugin.standalone.structure.ProjectPluginDisposeBlock" flags="in" index="2uRRBN" />
+      <concept id="481983775135178825" name="jetbrains.mps.lang.plugin.standalone.structure.ProjectPluginInitBlock" flags="in" index="2uRRBT" />
       <concept id="7520713872864775836" name="jetbrains.mps.lang.plugin.standalone.structure.StandalonePluginDescriptor" flags="ng" index="2DaZZR" />
     </language>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -2601,6 +2603,34 @@
             <ref role="37wK5l" node="2j1ljCNQUtN" resolve="stopServerFor" />
             <ref role="1Pybhc" node="3wOqysq7vnO" resolve="F1reMcpServerManager" />
             <node concept="1KvdUw" id="2j1ljCNR3sv" role="37wK5m" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2uRRBT" id="26_mWGlW8bN" role="2uRRB$">
+      <node concept="3clFbS" id="26_mWGlW8bP" role="2VODD2">
+        <node concept="3SKdUt" id="26_mWGlW8bQ" role="3cqZAp">
+          <node concept="1PaTwC" id="26_mWGlW8bU" role="1aUNEU">
+            <node concept="3oM_SD" id="26_mWGlW8bW" role="1PaTwD">
+              <property role="3oM_SC" value="Start the server with the project so agents can connect without opening the Tools menu" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="26_mWGlW8bX" role="3cqZAp">
+          <node concept="3fqX7Q" id="26_mWGlW8c0" role="3clFbw">
+            <node concept="2YIFZM" id="26_mWGlW8c2" role="3fr31v">
+              <ref role="37wK5l" node="3wOqysq7N2n" resolve="isServerRunning" />
+              <ref role="1Pybhc" node="3wOqysq7vnO" resolve="F1reMcpServerManager" />
+            </node>
+          </node>
+          <node concept="3clFbS" id="26_mWGlW8c3" role="3clFbx">
+            <node concept="3clFbF" id="26_mWGlW8c4" role="3cqZAp">
+              <node concept="2YIFZM" id="26_mWGlW8c6" role="3clFbG">
+                <ref role="37wK5l" node="3wOqysq7N6h" resolve="startServer" />
+                <ref role="1Pybhc" node="3wOqysq7vnO" resolve="F1reMcpServerManager" />
+                <node concept="1KvdUw" id="26_mWGlW8c7" role="37wK5m" />
+              </node>
+            </node>
           </node>
         </node>
       </node>
