@@ -30,6 +30,9 @@ jobs:
           distribution: jetbrains
           java-version: '21'
 
+      - name: Test the MCP bridge
+        run: cd $GITHUB_WORKSPACE && node --test "scripts/test/*.test.js"
+
       - name: Build the project
         run: cd $GITHUB_WORKSPACE && ./gradlew copyPlugin
       # Runs a single command using the runners shell

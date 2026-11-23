@@ -51,7 +51,16 @@ survives server restarts (see below), `socat` does not, so after a restart a
 
 Set `F1RE_MCP_BRIDGE_DEBUG=1` to log connection events to stderr. Host and port
 can be overridden with `node scripts/mcp-bridge.js [host] [port]` or
-`F1RE_MCP_HOST` / `F1RE_MCP_PORT`.
+`F1RE_MCP_HOST` / `F1RE_MCP_PORT`; `F1RE_MCP_BRIDGE_RETRY_MS` and
+`F1RE_MCP_BRIDGE_QUEUE_TIMEOUT_MS` change the reconnect delay and the queue
+timeout.
+
+The bridge has its own tests, which run against a mock server and need neither
+MPS nor any npm packages:
+
+```
+node --test "scripts/test/*.test.js"
+```
 
 ## Contributing to the server
 
@@ -65,8 +74,9 @@ new session:
 | `F1reMPSResourcesExtensionPoint` | `{MPSProject => McpServerFeatures.SyncResourceSpecification}` | a resource |
 | `F1reMPSInstructionsExtensionPoint` | `{MPSProject => string}` | a part of the server instructions |
 
-- A function that throws is skipped and reported as a warning in the Messages
-  tool window ("Skipping an MCP tool that failed to register" and its
+- A function that throws or returns `null` is skipped and reported as a
+  warning in the Messages tool window ("Skipping an MCP tool that failed to
+  register" / "... that a contribution returned as null", and their
   resource/instructions variants); the session starts with everything else.
 - The server only advertises what it has: with no resources the list is empty,
   and with no instructions the `instructions` field is left out.
@@ -95,6 +105,17 @@ npx @modelcontextprotocol/inspector node scripts/mcp-bridge.js
 
 Or configure it by hand in the Inspector UI: transport **STDIO**, command
 `node`, arguments `scripts/mcp-bridge.js`.
+
+## Tests
+
+- **Bridge:** `node --test "scripts/test/*.test.js"` (also run in CI).
+- **Server:** the `server` folder of `io.f1re.ai.mps.mcp.tests` holds MPS tests
+  for the transport wrapper, the reload filter, live sessions on the running
+  server and the three extension points. The extension-point tests contribute
+  through `io.f1re.ai.mps.mcp.tests.plugin`, which stays inactive unless a test
+  enables it. MPS 2024.1's in-process runner does not expand `${projectHome}`
+  in the tests model's TestInfo, so set it to the project folder while running
+  the tests there and set it back afterwards.
 
 ## Things to keep in mind
 

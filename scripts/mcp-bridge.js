@@ -21,6 +21,8 @@
  * Usage: node scripts/mcp-bridge.js [host] [port]
  * Env:   F1RE_MCP_HOST, F1RE_MCP_PORT (positional args win)
  *        F1RE_MCP_BRIDGE_DEBUG=1 logs connection events to stderr
+ *        F1RE_MCP_BRIDGE_RETRY_MS, F1RE_MCP_BRIDGE_QUEUE_TIMEOUT_MS override the
+ *        reconnect delay (500) and queue timeout (60000), mainly for tests
  */
 'use strict';
 
@@ -28,8 +30,8 @@ const net = require('node:net');
 
 const HOST = process.argv[2] || process.env.F1RE_MCP_HOST || '127.0.0.1';
 const PORT = Number(process.argv[3] || process.env.F1RE_MCP_PORT || 6395);
-const RETRY_MS = 500;
-const QUEUE_TIMEOUT_MS = 60000;
+const RETRY_MS = Number(process.env.F1RE_MCP_BRIDGE_RETRY_MS || 500);
+const QUEUE_TIMEOUT_MS = Number(process.env.F1RE_MCP_BRIDGE_QUEUE_TIMEOUT_MS || 60000);
 const BRIDGE_INIT_ID = '__f1re_bridge_reinit__';
 const DEBUG = !!process.env.F1RE_MCP_BRIDGE_DEBUG;
 
@@ -212,5 +214,5 @@ process.stdin.on('end', () => process.exit(0));
 process.stdin.on('error', () => process.exit(1));
 process.stdout.on('error', () => process.exit(1));
 
-setInterval(expireQueue, 1000).unref();
+setInterval(expireQueue, Math.min(1000, QUEUE_TIMEOUT_MS)).unref();
 connect();
