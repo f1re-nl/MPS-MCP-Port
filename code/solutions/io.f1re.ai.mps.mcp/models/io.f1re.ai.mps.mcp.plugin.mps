@@ -281,6 +281,7 @@
         <child id="1163668922816" name="ifTrue" index="3K4E3e" />
         <child id="1163668934364" name="ifFalse" index="3K4GZi" />
       </concept>
+      <concept id="1082113931046" name="jetbrains.mps.baseLanguage.structure.ContinueStatement" flags="nn" index="3N13vt" />
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
         <child id="8356039341262087992" name="line" index="1aUNEU" />
       </concept>
@@ -1368,19 +1369,51 @@
                         <node concept="3clFbS" id="26_mWGmMN4o" role="2LFqv$">
                           <node concept="SfApY" id="26_mWGmMN4p" role="3cqZAp">
                             <node concept="3clFbS" id="26_mWGmMN4v" role="SfCbr">
-                              <node concept="3clFbF" id="26_mWGmMN4w" role="3cqZAp">
-                                <node concept="2OqwBi" id="26_mWGmMN4y" role="3clFbG">
-                                  <node concept="37vLTw" id="26_mWGmMN4_" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5RzOk$jolRg" resolve="list" />
-                                  </node>
-                                  <node concept="TSZUe" id="26_mWGmMN4A" role="2OqNvi">
-                                    <node concept="2OqwBi" id="26_mWGmMN4C" role="25WWJ7">
-                                      <node concept="2GrUjf" id="26_mWGmMN4F" role="2Oq$k0">
-                                        <ref role="2Gs0qQ" node="26_mWGmMN4m" />
+                              <node concept="9aQIb" id="1UKsNUU47ff" role="3cqZAp">
+                                <node concept="3clFbS" id="1UKsNUU47fh" role="9aQI4">
+                                  <node concept="3cpWs8" id="1UKsNUU47fi" role="3cqZAp">
+                                    <node concept="3cpWsn" id="1UKsNUU47fl" role="3cpWs9">
+                                      <property role="TrG5h" value="contribution" />
+                                      <node concept="3uibUv" id="1UKsNUU47fn" role="1tU5fm">
+                                        <ref role="3uigEE" to="zbzf:~McpServerFeatures$SyncToolSpecification" resolve="SyncToolSpecification" />
                                       </node>
-                                      <node concept="1Bd96e" id="26_mWGmMN4G" role="2OqNvi">
-                                        <node concept="37vLTw" id="26_mWGmMN4H" role="1BdPVh">
-                                          <ref role="3cqZAo" node="urMXpvIf0R" resolve="project" />
+                                      <node concept="2OqwBi" id="1UKsNUU47fo" role="33vP2m">
+                                        <node concept="2GrUjf" id="1UKsNUU47fr" role="2Oq$k0">
+                                          <ref role="2Gs0qQ" node="26_mWGmMN4m" resolve="func" />
+                                        </node>
+                                        <node concept="1Bd96e" id="1UKsNUU47fs" role="2OqNvi">
+                                          <node concept="37vLTw" id="1UKsNUU47ft" role="1BdPVh">
+                                            <ref role="3cqZAo" node="urMXpvIf0R" resolve="project" />
+                                          </node>
+                                        </node>
+                                      </node>
+                                    </node>
+                                  </node>
+                                  <node concept="3clFbJ" id="1UKsNUU47fu" role="3cqZAp">
+                                    <node concept="3clFbC" id="1UKsNUU4DIX" role="3clFbw">
+                                      <node concept="37vLTw" id="1UKsNUU47f$" role="3uHU7B">
+                                        <ref role="3cqZAo" node="1UKsNUU47fl" resolve="contribution" />
+                                      </node>
+                                      <node concept="10Nm6u" id="1UKsNUU47f_" role="3uHU7w" />
+                                    </node>
+                                    <node concept="3clFbS" id="1UKsNUU47fA" role="3clFbx">
+                                      <node concept="2xdQw9" id="1UKsNUU47fN" role="3cqZAp">
+                                        <property role="2xdLsb" value="gZ5fksE/warn" />
+                                        <node concept="Xl_RD" id="1UKsNUU47fP" role="9lYJi">
+                                          <property role="Xl_RC" value="Skipping an MCP tool that a contribution returned as null" />
+                                        </node>
+                                      </node>
+                                      <node concept="3N13vt" id="1UKsNUU4W_p" role="3cqZAp" />
+                                    </node>
+                                  </node>
+                                  <node concept="3clFbF" id="1UKsNUU47fB" role="3cqZAp">
+                                    <node concept="2OqwBi" id="1UKsNUU47fD" role="3clFbG">
+                                      <node concept="37vLTw" id="1UKsNUU47fG" role="2Oq$k0">
+                                        <ref role="3cqZAo" node="5RzOk$jolRg" resolve="list" />
+                                      </node>
+                                      <node concept="TSZUe" id="1UKsNUU47fH" role="2OqNvi">
+                                        <node concept="37vLTw" id="1UKsNUU47fJ" role="25WWJ7">
+                                          <ref role="3cqZAo" node="1UKsNUU47fl" resolve="contribution" />
                                         </node>
                                       </node>
                                     </node>
@@ -1461,19 +1494,51 @@
                         <node concept="3clFbS" id="26_mWGn0mDv" role="2LFqv$">
                           <node concept="SfApY" id="26_mWGn0mDw" role="3cqZAp">
                             <node concept="3clFbS" id="26_mWGn0mDA" role="SfCbr">
-                              <node concept="3clFbF" id="26_mWGn0mDB" role="3cqZAp">
-                                <node concept="2OqwBi" id="26_mWGn0mDD" role="3clFbG">
-                                  <node concept="37vLTw" id="26_mWGn0mDG" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="26_mWGn0l4R" />
-                                  </node>
-                                  <node concept="TSZUe" id="26_mWGn0mDH" role="2OqNvi">
-                                    <node concept="2OqwBi" id="26_mWGn0mDJ" role="25WWJ7">
-                                      <node concept="2GrUjf" id="26_mWGn0mDM" role="2Oq$k0">
-                                        <ref role="2Gs0qQ" node="26_mWGn0mDt" />
+                              <node concept="9aQIb" id="1UKsNUU47fS" role="3cqZAp">
+                                <node concept="3clFbS" id="1UKsNUU47fU" role="9aQI4">
+                                  <node concept="3cpWs8" id="1UKsNUU47fV" role="3cqZAp">
+                                    <node concept="3cpWsn" id="1UKsNUU47fY" role="3cpWs9">
+                                      <property role="TrG5h" value="contribution" />
+                                      <node concept="3uibUv" id="1UKsNUU47g0" role="1tU5fm">
+                                        <ref role="3uigEE" to="zbzf:~McpServerFeatures$SyncResourceSpecification" resolve="SyncResourceSpecification" />
                                       </node>
-                                      <node concept="1Bd96e" id="26_mWGn0mDN" role="2OqNvi">
-                                        <node concept="37vLTw" id="26_mWGn0mDO" role="1BdPVh">
-                                          <ref role="3cqZAo" node="urMXpvIf0R" resolve="project" />
+                                      <node concept="2OqwBi" id="1UKsNUU47g1" role="33vP2m">
+                                        <node concept="2GrUjf" id="1UKsNUU47g4" role="2Oq$k0">
+                                          <ref role="2Gs0qQ" node="26_mWGn0mDt" resolve="func" />
+                                        </node>
+                                        <node concept="1Bd96e" id="1UKsNUU47g5" role="2OqNvi">
+                                          <node concept="37vLTw" id="1UKsNUU47g6" role="1BdPVh">
+                                            <ref role="3cqZAo" node="urMXpvIf0R" resolve="project" />
+                                          </node>
+                                        </node>
+                                      </node>
+                                    </node>
+                                  </node>
+                                  <node concept="3clFbJ" id="1UKsNUU47g7" role="3cqZAp">
+                                    <node concept="3clFbC" id="1UKsNUU54ag" role="3clFbw">
+                                      <node concept="37vLTw" id="1UKsNUU47gd" role="3uHU7B">
+                                        <ref role="3cqZAo" node="1UKsNUU47fY" resolve="contribution" />
+                                      </node>
+                                      <node concept="10Nm6u" id="1UKsNUU47ge" role="3uHU7w" />
+                                    </node>
+                                    <node concept="3clFbS" id="1UKsNUU47gf" role="3clFbx">
+                                      <node concept="2xdQw9" id="1UKsNUU47gs" role="3cqZAp">
+                                        <property role="2xdLsb" value="gZ5fksE/warn" />
+                                        <node concept="Xl_RD" id="1UKsNUU47gu" role="9lYJi">
+                                          <property role="Xl_RC" value="Skipping an MCP resource that a contribution returned as null" />
+                                        </node>
+                                      </node>
+                                      <node concept="3N13vt" id="1UKsNUU5qbD" role="3cqZAp" />
+                                    </node>
+                                  </node>
+                                  <node concept="3clFbF" id="1UKsNUU47gg" role="3cqZAp">
+                                    <node concept="2OqwBi" id="1UKsNUU47gi" role="3clFbG">
+                                      <node concept="37vLTw" id="1UKsNUU47gl" role="2Oq$k0">
+                                        <ref role="3cqZAo" node="26_mWGn0l4R" resolve="resources" />
+                                      </node>
+                                      <node concept="TSZUe" id="1UKsNUU47gm" role="2OqNvi">
+                                        <node concept="37vLTw" id="1UKsNUU47go" role="25WWJ7">
+                                          <ref role="3cqZAo" node="1UKsNUU47fY" resolve="contribution" />
                                         </node>
                                       </node>
                                     </node>
@@ -1546,19 +1611,49 @@
                         <node concept="3clFbS" id="26_mWGnGYjk" role="2LFqv$">
                           <node concept="SfApY" id="26_mWGnGYjl" role="3cqZAp">
                             <node concept="3clFbS" id="26_mWGnGYjr" role="SfCbr">
-                              <node concept="3clFbF" id="26_mWGnGYjs" role="3cqZAp">
-                                <node concept="2OqwBi" id="26_mWGnGYju" role="3clFbG">
-                                  <node concept="37vLTw" id="26_mWGnGYjx" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="26_mWGnGWM8" />
-                                  </node>
-                                  <node concept="TSZUe" id="26_mWGnGYjy" role="2OqNvi">
-                                    <node concept="2OqwBi" id="26_mWGnGYj$" role="25WWJ7">
-                                      <node concept="2GrUjf" id="26_mWGnGYjB" role="2Oq$k0">
-                                        <ref role="2Gs0qQ" node="26_mWGnGYji" />
+                              <node concept="9aQIb" id="1UKsNUU47gx" role="3cqZAp">
+                                <node concept="3clFbS" id="1UKsNUU47gz" role="9aQI4">
+                                  <node concept="3cpWs8" id="1UKsNUU47g$" role="3cqZAp">
+                                    <node concept="3cpWsn" id="1UKsNUU47gB" role="3cpWs9">
+                                      <property role="TrG5h" value="contribution" />
+                                      <node concept="17QB3L" id="1UKsNUU47gD" role="1tU5fm" />
+                                      <node concept="2OqwBi" id="1UKsNUU47gE" role="33vP2m">
+                                        <node concept="2GrUjf" id="1UKsNUU47gH" role="2Oq$k0">
+                                          <ref role="2Gs0qQ" node="26_mWGnGYji" resolve="func" />
+                                        </node>
+                                        <node concept="1Bd96e" id="1UKsNUU47gI" role="2OqNvi">
+                                          <node concept="37vLTw" id="1UKsNUU47gJ" role="1BdPVh">
+                                            <ref role="3cqZAo" node="urMXpvIf0R" resolve="project" />
+                                          </node>
+                                        </node>
                                       </node>
-                                      <node concept="1Bd96e" id="26_mWGnGYjC" role="2OqNvi">
-                                        <node concept="37vLTw" id="26_mWGnGYjD" role="1BdPVh">
-                                          <ref role="3cqZAo" node="urMXpvIf0R" resolve="project" />
+                                    </node>
+                                  </node>
+                                  <node concept="3clFbJ" id="1UKsNUU47gK" role="3cqZAp">
+                                    <node concept="3clFbC" id="1UKsNUU5_DK" role="3clFbw">
+                                      <node concept="37vLTw" id="1UKsNUU47gQ" role="3uHU7B">
+                                        <ref role="3cqZAo" node="1UKsNUU47gB" resolve="contribution" />
+                                      </node>
+                                      <node concept="10Nm6u" id="1UKsNUU47gR" role="3uHU7w" />
+                                    </node>
+                                    <node concept="3clFbS" id="1UKsNUU47gS" role="3clFbx">
+                                      <node concept="2xdQw9" id="1UKsNUU47h5" role="3cqZAp">
+                                        <property role="2xdLsb" value="gZ5fksE/warn" />
+                                        <node concept="Xl_RD" id="1UKsNUU47h7" role="9lYJi">
+                                          <property role="Xl_RC" value="Skipping MCP server instructions that a contribution returned as null" />
+                                        </node>
+                                      </node>
+                                      <node concept="3N13vt" id="1UKsNUU5U3Y" role="3cqZAp" />
+                                    </node>
+                                  </node>
+                                  <node concept="3clFbF" id="1UKsNUU47gT" role="3cqZAp">
+                                    <node concept="2OqwBi" id="1UKsNUU47gV" role="3clFbG">
+                                      <node concept="37vLTw" id="1UKsNUU47gY" role="2Oq$k0">
+                                        <ref role="3cqZAo" node="26_mWGnGWM8" resolve="instructions" />
+                                      </node>
+                                      <node concept="TSZUe" id="1UKsNUU47gZ" role="2OqNvi">
+                                        <node concept="37vLTw" id="1UKsNUU47h1" role="25WWJ7">
+                                          <ref role="3cqZAo" node="1UKsNUU47gB" resolve="contribution" />
                                         </node>
                                       </node>
                                     </node>
@@ -2830,7 +2925,7 @@
           <node concept="3clFbT" id="26_mWGmmCxU" role="3cqZAk" />
         </node>
       </node>
-      <node concept="3Tm6S6" id="26_mWGmmCxV" role="1B3o_S" />
+      <node concept="3Tm1VV" id="1UKsNUU1wLw" role="1B3o_S" />
       <node concept="10P_77" id="26_mWGmmCxW" role="3clF45" />
     </node>
   </node>
