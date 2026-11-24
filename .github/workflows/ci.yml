@@ -33,8 +33,18 @@ jobs:
       - name: Test the MCP bridge
         run: cd $GITHUB_WORKSPACE && node --test "scripts/test/*.test.js"
 
-      - name: Build the project
-        run: cd $GITHUB_WORKSPACE && ./gradlew copyPlugin
+      - name: Build the project and run the MPS tests
+        run: cd $GITHUB_WORKSPACE && ./gradlew check copyPlugin
+
+      # The test runner writes its JUnit reports here even when tests fail
+      # (they are copied to code/TEST-*.xml only after a passing run).
+      - name: Upload the MPS test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mps-test-reports
+          path: code/build/tmp/mpsMcpBackportPlugin/TEST-*.xml
+          if-no-files-found: ignore
       # Runs a single command using the runners shell
       #- name: Run a one-line script
       #   run: echo Hello, world!
