@@ -22,6 +22,8 @@
  * -> copyPlugin
  *
  * packagePlugins -> testMps -> check (MPS tests)
+ *
+ * ./gradlew with no task runs check and copyPlugin.
  */
 
 plugins {
@@ -172,5 +174,11 @@ tasks.register('copyPlugin', Copy) {
     into 'build/artifacts/'
 }
 
-// default should be "do all"
-defaultTasks 'copyPlugin'
+tasks.named('copyPlugin') {
+    // Copy the plugin out only once the tests have passed.
+    mustRunAfter check
+}
+
+// Plain ./gradlew does everything: downloads MPS and the MCP SDK, generates,
+// packages, runs the MPS tests and copies the plugin to build/artifacts.
+defaultTasks 'check', 'copyPlugin'

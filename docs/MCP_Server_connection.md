@@ -116,14 +116,16 @@ Or configure it by hand in the Inspector UI: transport **STDIO**, command
   enables it.
   - In MPS: the tests model's TestInfo points at the `mcp-port.home` path
     variable, so define it under Settings > Path Variables as the `code` folder.
-  - Headless: `./gradlew check` (also run in CI) runs all of
-    `io.f1re.ai.mps.mcp.tests` in a headless MPS through the build script's
-    "test modules" aspect. JUnit reports land in
+  - Headless: plain `./gradlew` (also run in CI) downloads MPS and the MCP SDK,
+    builds the plugin, runs all of `io.f1re.ai.mps.mcp.tests` in a headless MPS
+    through the build script's "test modules" aspect and, if they pass, copies
+    the plugin to `build/artifacts`. `./gradlew check` runs only up to the
+    tests. JUnit reports land in
     `code/build/tmp/mpsMcpBackportPlugin/TEST-*.xml`. The build script's
     `mps.macro.mcp-port.home` folder macro defines the path variable for that
     MPS. Close MPS first: the live-server tests bind port 6395, and Gradle
     refreshes the SDK jars in `io.f1re.ai.mps.mcp.stubs/lib`.
-- **SDK jars:** `./gradlew resolveMcpSdk` downloads the MCP SDK into
+- **SDK jars:** `./gradlew` (or just `./gradlew resolveMcpSdk`) downloads the MCP SDK into
   `code/solutions/io.f1re.ai.mps.mcp.stubs/lib` (gitignored), where the stubs
   module loads them from; no path variables are needed for the modules.
 

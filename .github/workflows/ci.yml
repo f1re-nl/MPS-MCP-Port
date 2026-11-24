@@ -34,7 +34,7 @@ jobs:
         run: cd $GITHUB_WORKSPACE && node --test "scripts/test/*.test.js"
 
       - name: Build the project and run the MPS tests
-        run: cd $GITHUB_WORKSPACE && ./gradlew check copyPlugin
+        run: cd $GITHUB_WORKSPACE && ./gradlew
 
       # The test runner writes its JUnit reports here even when tests fail
       # (they are copied to code/TEST-*.xml only after a passing run).
