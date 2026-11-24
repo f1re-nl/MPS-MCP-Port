@@ -14,6 +14,9 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    # A normal run takes a few minutes; a hung MPS test is cancelled here
+    # instead of after GitHub's 6 hours.
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
@@ -34,6 +37,23 @@ jobs:
         run: xvfb-run -a ./gradlew publish -Pversion=${GITHUB_REF_NAME#v}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # As in mbeddr/mps-qa: on a timeout or a manual cancel the JVMs are still
+      # alive here, so their stacks show what a hung test is waiting on.
+      - name: Dump Java stacks on cancellation
+        if: cancelled()
+        run: |
+          mkdir -p build/hang
+          cd build/hang
+          jps -mlv > jps.txt
+          for pid in $(jps -q); do jstack -l -e "$pid" > "stack-$pid.txt" || true; done
+
+      - name: Upload the Java stacks
+        if: cancelled()
+        uses: actions/upload-artifact@v4
+        with:
+          name: java-stacks
+          path: build/hang/
 
       - name: Upload the MPS test reports
         if: always()
