@@ -15,14 +15,29 @@
  * |
  * -> packagePlugins
  * |
+ * -> zipPlugin
+ * |
  * -> assemble
  * |
  * -> copyPlugin
+ *
+ * packagePlugins -> testMps -> check (MPS tests)
+ *
+ * ./gradlew with no task runs check and copyPlugin.
  */
 
 plugins {
     id 'base'
+    id 'maven-publish'
     id 'de.itemis.mps.gradle.common' version '1.30.1.1.bc0f59d'
+}
+
+// Published as io.f1re.ai.mps:mcp-server:<version>@zip. The publish workflow
+// passes the release version (-Pversion=2024.1.6.<n>); local builds are
+// snapshots of the MPS version this branch targets.
+group = 'io.f1re.ai.mps'
+if (version == 'unspecified') {
+    version = '2024.1.6-SNAPSHOT'
 }
 
 import de.itemis.mps.gradle.tasks.MpsGenerate
@@ -72,9 +87,9 @@ dependencies {
 }
 
 tasks.register('resolveMcpSdk', Copy) {
-    description = 'Downloads the MCP Java SDK jar'
+    description = 'Downloads the MCP Java SDK jars into the stubs module'
     from { configurations.mcpSdk }
-    into "$buildDir/mcp"
+    into 'code/solutions/io.f1re.ai.mps.mcp.stubs/lib'
 }
 
 task resolveMps(type: Copy) {
@@ -97,21 +112,7 @@ tasks.register('generate', MpsGenerate) {
     if (moduleNamePattern) {
         modules = moduleNamePattern
     }
-    // Resolves ${buildDeps} in io.f1re.ai.mps.mcp's module descriptor, which
-    // references the MCP SDK jars copied by resolveMcpSdk. Same macro name as
-    // the buildDeps BuildFolderMacro already declared in io.f1re.ai.mps.build's
-    // BuildProject (which independently resolves it as ../../build/mcp).
-    folderMacros.put('buildDeps', layout.buildDirectory.dir('mcp'))
 }
-
-// The io.f1re.ai.mps.build solution contains a BuildProject (f1reMcpPlugins)
-// whose generated Ant script assumes code as its basedir (Ant defaults
-// basedir to the buildfile's own directory), so it has to be copied there
-// before being run rather than executed from source_gen directly.
-//
-// TODO: running MPS-based tests still needs to be wired up. The older
-// BuildLanguages/TestLanguages task types still exist in this plugin version
-// but are undocumented/deprecated and were intentionally not used.
 
 tasks.register('exportBuildScript', Copy) {
     dependsOn generate
@@ -131,7 +132,7 @@ tasks.register('packagePlugins', RunAntScript) {
     // The exported script's "generate" target (jetbrains.mps.build.ant's
     // <generate> task, with explicit <chunk>s ordering the project's own
     // languages before the solutions that use them) is what actually does
-    // the model-to-Java generation, correctly handling that ordering in a
+    // the model-to-Java generation. Correctly handling that ordering in a
     // way the lightweight de.itemis.mps.gradle "generate" task above
     // cannot. Its default "build" target only compiles+packages whatever
     // source_gen already contains, so both targets have to run, in order.
@@ -139,8 +140,78 @@ tasks.register('packagePlugins', RunAntScript) {
     scriptClasspath = fileTree("$mpsHomeDir/lib/ant/lib") { include '*.jar' } + configurations.jdomForAnt
 }
 
-tasks.named('assemble') {
+// A test MPS treats an unknown path variable as fatal. No module descriptor uses
+// one; the tests' TestInfo uses mcp-port.home (the project folder)
+tasks.register('testMps', RunAntScript) {
     dependsOn packagePlugins
+    description = 'Runs the MPS tests of io.f1re.ai.mps.mcp.tests in a headless MPS'
+    script = file('code/build.xml')
+    // packagePlugins has already generated everything; "check" launches the tests.
+    // JUnit reports land in code/TEST-*.xml.
+    targets = ['check']
+    // <launchtests> forks MPS with this classpath, so it takes jdom from MPS's
+    // own util-8.jar: the older jdomForAnt jar shadows it and MPS fails to
+    // start (NoSuchMethodError on org.jdom.Element).
+    scriptClasspath = fileTree("$mpsHomeDir/lib/ant/lib") { include '*.jar' } + files("$mpsHomeDir/lib/util-8.jar")
+}
+
+tasks.named('check') {
+    dependsOn testMps
+}
+
+// The build script's layout keeps the plugin as a folder (the headless test MPS
+// loads it from there), so the distributable zip is made here.
+def pluginLayoutDir = file('code/build/artifacts/mpsMcpBackportPlugin')
+
+tasks.register('zipPlugin', Zip) {
+    dependsOn packagePlugins
+    description = 'Zips the MpsMcpBackport plugin folder into mpsMcpBackport.zip'
+    from(pluginLayoutDir) { include 'MpsMcpBackport/**' }
+    // The stdio relay that MCP clients on Windows use to reach the server.
+    from('scripts') {
+        include 'mcp-bridge.js'
+        into 'MpsMcpBackport/scripts'
+    }
+    archiveFileName = 'mpsMcpBackport.zip'
+    destinationDirectory = pluginLayoutDir
+}
+
+// The plugin zip, as a Maven artifact on GitHub Packages. Publishing needs a
+// token with write:packages: GITHUB_ACTOR/GITHUB_TOKEN in the publish workflow,
+// or gpr.user/gpr.key in ~/.gradle/gradle.properties for a manual publish.
+publishing {
+    publications {
+        mcpServer(MavenPublication) {
+            artifactId = 'mcp-server'
+            artifact(tasks.named('zipPlugin')) {
+                extension = 'zip'
+            }
+            pom {
+                name = 'F1re MCP server for MPS'
+                description = "MCP server plugin for MPS ${mpsVersion}, with the ported MPS MCP tools and extension points for tools, resources and instructions"
+                url = 'https://github.com/f1re-nl/MPS-MCP-Port'
+            }
+        }
+    }
+    repositories {
+        maven {
+            name = 'GitHubPackages'
+            url = 'https://maven.pkg.github.com/f1re-nl/MPS-MCP-Port'
+            credentials {
+                username = findProperty('gpr.user') ?: System.getenv('GITHUB_ACTOR')
+                password = findProperty('gpr.key') ?: System.getenv('GITHUB_TOKEN')
+            }
+        }
+    }
+}
+
+// Only publish what passed the MPS tests.
+tasks.withType(PublishToMavenRepository).configureEach {
+    dependsOn check
+}
+
+tasks.named('assemble') {
+    dependsOn zipPlugin
     description = 'Assembles the distributable artifacts for this MPS project'
 }
 
@@ -151,5 +222,11 @@ tasks.register('copyPlugin', Copy) {
     into 'build/artifacts/'
 }
 
-// default should be "do all"
-defaultTasks 'copyPlugin'
+tasks.named('copyPlugin') {
+    // Copy the plugin out only once the tests have passed.
+    mustRunAfter check
+}
+
+// Plain ./gradlew does everything: downloads MPS and the MCP SDK, generates,
+// packages, runs the MPS tests and copies the plugin to build/artifacts.
+defaultTasks 'check', 'copyPlugin'

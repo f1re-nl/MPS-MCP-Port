@@ -13,6 +13,8 @@
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="c7d5b9dd-a05f-4be2-bc73-f2e16994cc67" name="jetbrains.mps.baseLanguage.lightweightdsl" version="1" />
     <use id="c0080a47-7e37-4558-bee9-9ae18e690549" name="jetbrains.mps.lang.extension" version="2" />
+    <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="2" />
+    <use id="446c26eb-2b7b-4bf0-9b35-f83fa582753e" name="jetbrains.mps.lang.modelapi" version="0" />
   </languages>
   <imports>
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
@@ -102,7 +104,7 @@
     <import index="gp7a" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project.dependency(MPS.Core/)" />
     <import index="tq99" ref="r:2ff63e4e-d3c5-4094-b4e7-70a41cc7df53(io.f1re.ai.mps.mcp.plugin)" />
     <import index="upz5" ref="r:33366a6f-09e8-45e7-ae7f-cb8cf0c7ed05(jetbrains.mps.baseLanguage.tuples.runtime)" />
-    <import index="90d" ref="r:421d64ed-8024-497f-aeab-8bddeb389dd2(jetbrains.mps.lang.extension.methods)" implicit="true" />
+    <import index="90d" ref="r:421d64ed-8024-497f-aeab-8bddeb389dd2(jetbrains.mps.lang.extension.methods)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -472,13 +474,6 @@
       <concept id="4222318806802425298" name="jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation" flags="ng" index="15s5l7">
         <property id="8575328350543493365" name="message" index="huDt6" />
         <property id="2423417345669755629" name="filter" index="1eyWvh" />
-      </concept>
-      <concept id="709746936026466394" name="jetbrains.mps.lang.core.structure.ChildAttribute" flags="ng" index="3VBwX9">
-        <property id="709746936026609031" name="linkId" index="3V$3ak" />
-        <property id="709746936026609029" name="role_DebugInfo" index="3V$3am" />
-      </concept>
-      <concept id="4452961908202556907" name="jetbrains.mps.lang.core.structure.BaseCommentAttribute" flags="ng" index="1X3_iC">
-        <child id="3078666699043039389" name="commentedNode" index="8Wnug" />
       </concept>
     </language>
     <language id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text">
@@ -107617,7 +107612,7 @@
                         <node concept="1eOMI4" id="3Kc_v6PIyz9" role="3fr31v">
                           <node concept="2YIFZM" id="3Kc_v6PIyZw" role="1eOMHV">
                             <ref role="1Pybhc" node="3Kc_v6PEt$M" resolve="IntentionSupport" />
-                            <ref role="37wK5l" node="3Kc_v6PEtCW" resolve="safeIsApplicable" />
+                            <ref role="37wK5l" node="26_mWGneJ8B" />
                             <node concept="2OqwBi" id="3Kc_v6PI$s2" role="37wK5m">
                               <node concept="37vLTw" id="3Kc_v6PI$s1" role="2Oq$k0">
                                 <ref role="3cqZAo" node="3Kc_v6PIy$6" resolve="qf" />
@@ -109493,7 +109488,7 @@
             <node concept="1eOMI4" id="3Kc_v6PIyH2" role="3fr31v">
               <node concept="2YIFZM" id="3Kc_v6PIz7y" role="1eOMHV">
                 <ref role="1Pybhc" node="3Kc_v6PEt$M" resolve="IntentionSupport" />
-                <ref role="37wK5l" node="3Kc_v6PEtCW" resolve="safeIsApplicable" />
+                <ref role="37wK5l" node="26_mWGneJ8B" />
                 <node concept="2OqwBi" id="3Kc_v6PIA2x" role="37wK5m">
                   <node concept="37vLTw" id="3Kc_v6PIA2w" role="2Oq$k0">
                     <ref role="3cqZAo" node="3Kc_v6PIyGu" resolve="chosen" />
@@ -135573,126 +135568,38 @@
       </node>
     </node>
     <node concept="2tJIrI" id="AdckQImes$" role="jymVt" />
-    <node concept="2YIFZL" id="3Kc_v6PEtCW" role="jymVt">
+    <node concept="2YIFZL" id="26_mWGneJ8B" role="jymVt">
       <property role="TrG5h" value="safeIsApplicable" />
-      <node concept="37vLTG" id="3Kc_v6PEtCX" role="3clF46">
+      <node concept="37vLTG" id="26_mWGneJ8C" role="3clF46">
         <property role="TrG5h" value="fix" />
-        <node concept="3uibUv" id="3Kc_v6PEtCY" role="1tU5fm">
+        <node concept="3uibUv" id="26_mWGneJ8D" role="1tU5fm">
           <ref role="3uigEE" to="d6hs:~QuickFixBase" resolve="QuickFixBase" />
         </node>
       </node>
-      <node concept="37vLTG" id="3Kc_v6PEtCZ" role="3clF46">
+      <node concept="37vLTG" id="26_mWGneJ8E" role="3clF46">
         <property role="TrG5h" value="repo" />
-        <node concept="3uibUv" id="3Kc_v6PEtD0" role="1tU5fm">
+        <node concept="3uibUv" id="26_mWGneJ8F" role="1tU5fm">
           <ref role="3uigEE" to="lui2:~SRepository" resolve="SRepository" />
         </node>
       </node>
-      <node concept="3clFbS" id="3Kc_v6PEtD1" role="3clF47">
-        <node concept="3clFbJ" id="3Kc_v6PEtD2" role="3cqZAp">
-          <node concept="3fqX7Q" id="3Kc_v6PEtD3" role="3clFbw">
-            <node concept="1eOMI4" id="3Kc_v6PEtD7" role="3fr31v">
-              <node concept="2ZW3vV" id="3Kc_v6PEtD6" role="1eOMHV">
-                <node concept="37vLTw" id="3Kc_v6PEtD4" role="2ZW6bz">
-                  <ref role="3cqZAo" node="3Kc_v6PEtCX" resolve="fix" />
-                </node>
-                <node concept="3uibUv" id="3Kc_v6PEtD5" role="2ZW6by">
-                  <ref role="3uigEE" to="d6hs:~EditorQuickFix" resolve="EditorQuickFix" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbS" id="3Kc_v6PEtD9" role="3clFbx">
-            <node concept="3cpWs6" id="3Kc_v6PEtDa" role="3cqZAp">
-              <node concept="3clFbT" id="3Kc_v6PEtDb" role="3cqZAk">
-                <property role="3clFbU" value="true" />
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3J1_TO" id="3Kc_v6PEtDs" role="3cqZAp">
-          <node concept="3uVAMA" id="3Kc_v6PEtDt" role="1zxBo5">
-            <node concept="3clFbS" id="3Kc_v6PEtDp" role="1zc67A">
-              <node concept="3cpWs6" id="3Kc_v6PEtDq" role="3cqZAp">
-                <node concept="3clFbT" id="3Kc_v6PEtDr" role="3cqZAk">
-                  <property role="3clFbU" value="true" />
-                </node>
-              </node>
-            </node>
-            <node concept="XOnhg" id="3Kc_v6PEtDl" role="1zc67B">
-              <property role="TrG5h" value="e" />
-              <node concept="nSUau" id="3Kc_v6PEtDn" role="1tU5fm">
-                <node concept="3uibUv" id="3Kc_v6PEtDm" role="nSUat">
-                  <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbS" id="3Kc_v6PEtDd" role="1zxBo7">
-            <node concept="3SKdUt" id="6c795u$5JFi" role="3cqZAp">
-              <node concept="1PaTwC" id="6c795u$5JFj" role="1aUNEU">
-                <node concept="3oM_SD" id="6c795u$5JFz" role="1PaTwD">
-                  <property role="3oM_SC" value="" />
-                </node>
-                <node concept="3oM_SD" id="6c795u$5JH4" role="1PaTwD">
-                  <property role="3oM_SC" value="FIXME" />
-                </node>
-                <node concept="3oM_SD" id="6c795u$5JHn" role="1PaTwD">
-                  <property role="3oM_SC" value="This" />
-                </node>
-                <node concept="3oM_SD" id="6c795u$5JHF" role="1PaTwD">
-                  <property role="3oM_SC" value="might" />
-                </node>
-                <node concept="3oM_SD" id="6c795u$5JHK" role="1PaTwD">
-                  <property role="3oM_SC" value="cause" />
-                </node>
-                <node concept="3oM_SD" id="6c795u$5JI6" role="1PaTwD">
-                  <property role="3oM_SC" value="bugs" />
-                </node>
-              </node>
-            </node>
-            <node concept="3cpWs6" id="6c795u$5J$Z" role="3cqZAp">
-              <node concept="3clFbT" id="6c795u$5JB9" role="3cqZAk">
-                <property role="3clFbU" value="true" />
-              </node>
-            </node>
-            <node concept="1X3_iC" id="6c795u$5J50" role="lGtFl">
-              <property role="3V$3am" value="statement" />
-              <property role="3V$3ak" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123136/1068581517665" />
-              <node concept="3cpWs6" id="3Kc_v6PEtDe" role="8Wnug">
-                <node concept="2OqwBi" id="3Kc_v6PET4P" role="3cqZAk">
-                  <node concept="1eOMI4" id="3Kc_v6PEtDj" role="2Oq$k0">
-                    <node concept="10QFUN" id="3Kc_v6PEtDg" role="1eOMHV">
-                      <node concept="37vLTw" id="3Kc_v6PEtDh" role="10QFUP">
-                        <ref role="3cqZAo" node="3Kc_v6PEtCX" resolve="fix" />
-                      </node>
-                      <node concept="3uibUv" id="3Kc_v6PEtDi" role="10QFUM">
-                        <ref role="3uigEE" to="d6hs:~EditorQuickFix" resolve="EditorQuickFix" />
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="3Kc_v6PET4Q" role="2OqNvi">
-                    <ref role="37wK5l" to="d6hs:~EditorQuickFix.isApplicable(org.jetbrains.mps.openapi.module.SRepository)" resolve="isApplicable" />
-                    <node concept="37vLTw" id="3Kc_v6PET4R" role="37wK5m">
-                      <ref role="3cqZAo" node="3Kc_v6PEtCZ" resolve="repo" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
+      <node concept="3clFbS" id="26_mWGneJ8G" role="3clF47">
+        <node concept="3cpWs6" id="26_mWGneJ8H" role="3cqZAp">
+          <node concept="3clFbT" id="26_mWGneJ8I" role="3cqZAk">
+            <property role="3clFbU" value="true" />
           </node>
         </node>
       </node>
-      <node concept="3Tm1VV" id="3Kc_v6PEtDu" role="1B3o_S" />
-      <node concept="10P_77" id="3Kc_v6PEtDv" role="3clF45" />
-      <node concept="P$JXv" id="3Kc_v6PEtDw" role="lGtFl">
-        <node concept="TZ5HA" id="3Kc_v6PEtG_" role="TZ5H$">
-          <node concept="1dT_AC" id="3Kc_v6PEtGA" role="1dT_Ay">
-            <property role="1dT_AB" value="Guards EditorQuickFix.isApplicable, which is language-author code, so a throwing implementation" />
+      <node concept="3Tm1VV" id="26_mWGneJ8J" role="1B3o_S" />
+      <node concept="10P_77" id="26_mWGneJ8K" role="3clF45" />
+      <node concept="P$JXv" id="26_mWGneJ8L" role="lGtFl">
+        <node concept="TZ5HA" id="26_mWGneJ8M" role="TZ5H$">
+          <node concept="1dT_AC" id="26_mWGneJ8N" role="1dT_Ay">
+            <property role="1dT_AB" value="Reports whether a quick fix can be applied. MPS 2024.1's EditorQuickFix has no isApplicable(SRepository)" />
           </node>
         </node>
-        <node concept="TZ5HA" id="3Kc_v6PEtGB" role="TZ5H$">
-          <node concept="1dT_AC" id="3Kc_v6PEtGC" role="1dT_Ay">
-            <property role="1dT_AB" value="cannot abort a listing or apply. Non-EditorQuickFix fixes always return true." />
+        <node concept="TZ5HA" id="26_mWGneJ8O" role="TZ5H$">
+          <node concept="1dT_AC" id="26_mWGneJ8P" role="1dT_Ay">
+            <property role="1dT_AB" value="(it arrives in later MPS versions), so on this branch every quick fix is treated as applicable." />
           </node>
         </node>
       </node>

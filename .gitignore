@@ -16,3 +16,6 @@ build/
 **/test_gen.caches
 .agents/*
 .claude/*
+
+# MCP SDK jars, downloaded by ./gradlew resolveMcpSdk
+code/solutions/io.f1re.ai.mps.mcp.stubs/lib/
