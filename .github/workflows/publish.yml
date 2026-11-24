@@ -25,12 +25,15 @@ jobs:
       - name: Test the MCP bridge
         run: node --test "scripts/test/*.test.js"
 
+      # The MPS test environment needs an AWT toolkit, even without windows, and
+      # forces java.awt.headless itself; a virtual X server provides one.
+      - name: Install a virtual X server
+        run: sudo apt-get update && sudo apt-get install -y xvfb
+
       - name: Build, run the MPS tests and publish
-        run: ./gradlew publish -Pversion=${GITHUB_REF_NAME#v}
+        run: xvfb-run -a ./gradlew publish -Pversion=${GITHUB_REF_NAME#v}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # The runner has no X server; the forked test MPS must not try to open one.
-          JAVA_TOOL_OPTIONS: -Djava.awt.headless=true
 
       - name: Upload the MPS test reports
         if: always()

@@ -33,10 +33,11 @@ jobs:
       - name: Test the MCP bridge
         run: cd $GITHUB_WORKSPACE && node --test "scripts/test/*.test.js"
 
+      - name: Install a virtual X server
+        run: sudo apt-get update && sudo apt-get install -y xvfb
+
       - name: Build the project and run the MPS tests
-        run: cd $GITHUB_WORKSPACE && ./gradlew
-        env:
-          JAVA_TOOL_OPTIONS: -Djava.awt.headless=true
+        run: cd $GITHUB_WORKSPACE && xvfb-run -a ./gradlew
 
       # The test runner writes its JUnit reports here even when tests fail
       # (they are copied to code/TEST-*.xml only after a passing run).
